@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+  
+  
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+		  loadSidebar: true,
+		coverpage: true,
+		name: 'Modules_User_Guide'
+    }
+  </script>
+  
+
+   <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
+   <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  
+    <script src="//unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/gitalk.min.js"></script>
+  
+    <script>
+      const gitalk = new Gitalk({
+		   enable: true,
+          clientID: 'c7cbba9dd1b5c66ffea8',
+          clientSecret: '1cac1f7c65c9e71fd0068e6ab89b32c99287e163',
+          repo: 'gitcomments',
+          owner: 'MrVW',
+		  labels: 'gitalk'
+          admin: 'MrVW',
+		//  id: md5(location.pathname),
+        //  id: '{{ page.url | truncate: 50, '' }}',
+          distractionFreeMode: false // Facebook-like distraction free mode
+      })
+      gitalk.render('gitalk-container')
+  </script>
+  
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  
+<script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+
+  
+</body>
+</html>
