@@ -8,8 +8,6 @@ Quectel Wireless Solutions is the leading global supplier of cellular and GNSS m
 
 ![](https://www.quectel.com/images/about/ban2.png)
 
-## Products ##
-
 
 Quectel is committed to providing customers with good quality produles and services to meet their various demands, such as:
 
@@ -19,7 +17,7 @@ Quectel is committed to providing customers with good quality produles and servi
 - Compatibility
 
 
-## Tech ##
+## What is Quectel Modules ##
 
 Quectel Modules is such a device that provides data communication for emmbeded devices with SIM cards and mobile network.
 From the perspective of embedded system, the Quectel Modules is actually the Minimum System Core Circuit Board that can help the customers to set up data commnuction.
