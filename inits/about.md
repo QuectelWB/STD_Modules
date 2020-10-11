@@ -1,12 +1,11 @@
-# 关于&致谢 <!-- {docsify-ignore-all} -->
+# Abouts <!-- {docsify-ignore-all} -->
 
-邮箱:   wang_biao@126.com 
+EMAIL:   wang_biao@126.com   bean.wang@quectel.com
 
 Github: [MrVW](https://github.com/MrVW)  
 
+	[QuectelWB](https://github.com/QuectelWB)
 
-
-
-## 致谢
+## Thanks for your support
 
 <span style="font-size:1px;">Thanks you! </span>

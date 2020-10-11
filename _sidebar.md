@@ -1,42 +1,42 @@
-- [**引言**](/)
+- [Introductions](/)
 
-- 快速使用
+- QuickStart
 
-  - [尝鲜使用](/EasyStart/EasyStart)
+  - [EasyStart](/EasyStart/EasyStart)
 
 
-- 进阶基础
+- BaseTerms
 
-  - [硬件基础](/Base/HardWare)
-  - [AT指令](/Base/AT)
-  - [USB协议和网络基础](/Base/USB_NetWork)
+  - [HardWare](/Base/HardWare)
+  - [AT Commands](/Base/AT)
+  - [USB Protocol and Network](/Base/USB_NetWork)
 
-- USB串口
+- UsbSerial
 
-  - [USB串口](/UsbSerial/UsbSerial)
+  - [UsbSerialDriver](/UsbSerial/UsbSerial)
 
-- USB网卡
+- UsbNet
 
-  - [网卡](/UsbNet/UsbNet)
-
+  - [UsbNetInterfaceDriver](/UsbNet/UsbNet)
 
   
-- 应用场景
+- AppScenorios
 
-  - [AT串口操作](applications/00_AT串口操作)
-  - [quectel-CM开机自启动](applications/01_quectel-CM开机自启动)
-  - [USB重新枚举的方法](applications/02.reset_USB)
-  - [OpenWrt添加menuconfig](applications/03.1_openwrt_menuconfig)
-  - [OpenWrt添加patch](applications/03.2_openwrt_add_patch)
-  - [基于NAT的软路由](applications/04_基于NAT的软路由)
-  - [利用udev](applications/05.udev)
-  - [MAC地址问题](applications/06.qmi网卡的mac地址)
+  - [AT_commands_over_serial](applications/AT_ttySerial)
+  - [SetupDataCall_on_BootingUp](applications/SetupDataCall_on_BootingUp)
+  - [ResetUsb](applications/reset_USB)
+  - [OpenWrt_add_Program_Driver_into_menuconfig](applications/openwrt_menuconfig)
+  - [OpenWrt_add_patch_in_sdk](applications/openwrt_add_patch_in_sdk)
+  - [SoftRouteBasedonNAT](applications/SoftRoute_Base_on_NAT_and_iptables)
+  - [utility_of_udev](applications/udev)
+  - [MAC_of_network_interface](applications/MAC_address_of_NetWork_interface)
   - []()
   - [readytoadd](applications/readytoadd)
   
-  编译问题
 
-  - [概述](Build/general)
+- BuildIssules
+
+  - [General](Build/general)
   
 
 - FAQs
@@ -48,4 +48,4 @@
 
 
 - Abouts
-	- [关于&致谢](inits/about.md)
+	- [WhoAmI](inits/about.md)
