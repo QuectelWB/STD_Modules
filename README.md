@@ -10,7 +10,6 @@ Quectel Wireless Solutions is the leading global supplier of cellular and GNSS m
 
 ## Products ##
 
-移远致力于为客户提供优质的产品和服务，满足客户各类需求如
 
 Quectel is committed to providing customers with good quality produles and services to meet their various demands, such as:
 

@@ -7,4 +7,4 @@
 
 [`Official Website`](<https://www.quectel.com>)
 [`Quectel Forums`](<https://Forums.quectel.com>)
-[开始阅读](README.md)
+[Start](README.md)
