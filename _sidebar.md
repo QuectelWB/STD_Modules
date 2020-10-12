@@ -9,7 +9,10 @@
 
   - [HardWare](/Base/HardWare)
   - [AT Commands](/Base/AT)
-  - [USB Protocol and Network](/Base/USB_NetWork)
+  - [Network](/Base/NetWork)
+  - [USB Protocol](/Base/UsbProtocolBase)
+
+
 
 - UsbSerial
 

@@ -1,8 +1,10 @@
 ----------
-移远模组可以通过AT指令配置网卡类型
+
+Net Interface Type can be configured with AT cmds. 
+
 
 <font color=0x00FFFF>
-AT+QCFG=”usbnet”
+AT+QCFG="usbnet"
 </font>
 
 
@@ -31,64 +33,69 @@ table.tftable td {font-size:12px;border-width: 1px;padding: 8px;border-style: so
 </style>
 
 <table id="tfhover" class="tftable" border="1">
-<tr><th>模块网卡类型</th><th>Linux 驱动</th><th>拨号方式</th><th>物理层数据</th></tr>
+
+<tr><th>Net Interface Type</th><th>LinuDriver</th><th>Dialup Way</th><th>Physical</th></tr>
 <tr><td>rmnet/qmi/ndis
-at+qcfg=”usbnet”,0
+at+qcfg="usbnet",0
 </td><td>qmi_wwan&cdc_wdm
 CONFIG_USB_NET_QMI_WWAN
- 添加移远模块的vid和pid
-内核版本 >= 3.4
-；
+KernelVersion >= 3.4 | 
 GobiNet
- 移远提供源码
 
 </td><td>libqmi(Ubuntu)
 uqmi(openWRT)
 quectel-CM
 AT$QCRMCALL=1,1
-Autoconnect(不推荐, 不适用于5G)
-</td><td>IP帧</td></tr>
+</td><td>IP Frame</td></tr>
 <tr><td>ecm
-a+qcfg=”usbnet”,1
-车载方案OpenLinux
-</td><td>CONFIG_USB_NET_CDCETHER</td><td>autoconnect</td><td>以太网帧</td></tr>
+a+qcfg="usbnet",1
+automotive OpenLinux
+</td><td>CONFIG_USB_NET_CDCETHER</td><td>autoconnect</td><td>Ethernet Frame</td></tr>
 <tr><td>mbim
-at+qcfg=”usbnet”,2
-Win10平板EM/EP系列
+at+qcfg="usbnet",2
+Win10 Notebooks,EM/E Serials
 </td><td>CONFIG_USB_NET_CDC_MBIM
-内核版本 >= 3.18
-</td><td>mbim协议拨号
+KernelVersion >= 3.18
+</td><td>mbim protocol
 libmbim(Ubuntu)
-，quectel-CM也支持</td><td>MBIM帧</td></tr>
+quectel-M</td><td>MBIM Frame</td></tr>
 <tr><td>rndis
-at+qcfg=”usbnet”,3
-</td><td>CONFIG_USB_NET_RNDIS_HOST</td><td>autoconnect</td><td>以太网帧</td></tr>
+at+qcfg="usbnet",3
+</td><td>CONFIG_USB_NET_RNDIS_HOST</td><td>autoconnect</td><td>Ethernet Frame</td></tr>
 </table>
 
-其他如NCM和ECM、RNDIS类似。
-NCM内核开启
+Other Net type such as NCM/ACM interface works much same with ECM/RNDIS.
+
+
+obj-$(CONFIG_USB_NET_CDC_NCM)	+= cdc_ncm.o
+
+
 
 ----------
 
 # RMNET #
 ### QMI ###
-内核自带的
+
+There exsits qmi driver in the Linux Kernel from version 3.4.
+
 [qmi_wwan.c](https://elixir.bootlin.com/linux/v4.14.181/source/drivers/net/usb/qmi_wwan.c)
-可以用于LTE模组。
-但是该驱动不支持Quectel IP聚合和IP复用功能，并且不支持5G模组（5G模组强制打开IP聚合）
+
+It can be used on Quectel LTE modules.
+However, Quectel IP Multiplexing and IP Aggregation is not supported on that driver. 
+
 
 
 ### GobiNet ###
+
 如果要用AT指令拨号，将驱动中的qcrmcall_mode 设置成1. （5G模组暂不支持AT指令拨号）
 
 
-<table><tr><td bgcolor=yellow>请向Quectel索要最新版本的QMI驱动和GobiNet驱动 </td></tr></table>
+<table><tr><td bgcolor=yellow> Please  ask Quectel for the latest QMI and GobiNet drivers. </td></tr></table>
 
-	Mailto:support@quectel.com
+	Mailto: support@quectel.com
 
 
-##拨号方法
-
+## How to dial up for Rmnet 
 
 ### quectel-CM
 
