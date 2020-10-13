@@ -126,10 +126,15 @@ Module support that way .But Quectel provides limited technical support, especia
 
 
 
+to be done
+
 ----------
 
 ## MBIM #
 	 
+
+to be done
+
 ----------
 
 
@@ -149,3 +154,6 @@ Module support that way .But Quectel provides limited technical support, especia
 - Quectel-cm and ModemManger have conflicts. Try "apt remove -- Purge Modemmanger" .Modemmanger is available by default on both Debian and Centos classes.Some modules (EC2X) support ModemManger dialing, 5G unverified.
 - Specify the quectel-CM in one specified PID file. Just open this micro "CONFIG_PID_FILE_FORMAT".
 
+## The different between Rmnet and ECM 
+
+to be done
