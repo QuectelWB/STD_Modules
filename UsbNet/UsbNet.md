@@ -91,7 +91,7 @@ If you want to dial with the AT instruction, you need to set the qcrmcall_mode i
 
 <table><tr><td bgcolor=yellow> Please  ask Quectel for the latest QMI and GobiNet drivers. </td></tr></table>
 
-	Mailto: support@quectel.com
+Mailto: support@quectel.com
 
 
 #### QMAP ####
