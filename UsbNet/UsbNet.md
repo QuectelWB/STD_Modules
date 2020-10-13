@@ -87,8 +87,7 @@ However, Quectel IP Multiplexing and IP Aggregation is not supported on that dri
 
 ### GobiNet ###
 
-如果要用AT指令拨号，将驱动中的qcrmcall_mode 设置成1. （5G模组暂不支持AT指令拨号）
-
+If you want to dial with the AT instruction, you need to set the qcrmcall_mode in the driver to 1.
 
 <table><tr><td bgcolor=yellow> Please  ask Quectel for the latest QMI and GobiNet drivers. </td></tr></table>
 
