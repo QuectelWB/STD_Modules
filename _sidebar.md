@@ -49,7 +49,7 @@
   - [Open_Dev_Failed](FAQs/02.open_dev_failed)
   - [quectel-CM](FAQs/03.quectel-CM)
   - [driver_not_match](FAQs/04.driver_not_match)
-
+  - [UsefullShell](FAQs/05.usefull_shells)
 
 - Abouts
 	- [WhoAmI](inits/about.md)
