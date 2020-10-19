@@ -50,6 +50,7 @@
   - [quectel-CM](FAQs/03.quectel-CM)
   - [driver_not_match](FAQs/04.driver_not_match)
   - [UsefullShell](FAQs/05.usefull_shells)
+  - [UbuntuIssuses](FAQs/06.Ubuntu.issuses)
 
 - Abouts
 	- [WhoAmI](inits/about.md)
