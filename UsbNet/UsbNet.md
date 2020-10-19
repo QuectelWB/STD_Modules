@@ -26,7 +26,7 @@ AT+QCFG="usbnet"
 </script>
 
 <style type="text/css">
-table.tftable {font-size:12px;color:#333333;width:100%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
+Table.tftable {font-size:12px;color:#333333;width:100%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
 table.tftable th {font-size:12px;background-color:#acc8cc;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;text-align:left;}
 table.tftable tr {background-color:#ffffff;}
 table.tftable td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
@@ -204,4 +204,12 @@ Kconfig
 		depends on USB_USBNET
 		select USB_WDM
 		select USB_NET_CDC_NCM
+
 ----------
+
+
+
+
+
+
+
