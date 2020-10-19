@@ -1,13 +1,19 @@
 # EasyStart
 
-针对完全不熟悉LTE网络、不懂AT指令含义、希望通过Quectel LTE/5G模组快速联网的客户。
+This chapter is for those who are not familar with LTE network, have never used AT commands and want to start datacall or connection with the Internet as quick as posible.
 
-在Ubuntu PC上
+	for EC2x/EGxx
+	USB connection (include miniPCIe) 
+	Ubuntu OS(much better to use, Other OS like Debian/Centos is Ok, not fit for embeded platfom. For embeded platform, it is better to 
+	know much more)
 
-1.检查硬件连接，Ubuntu PC能识别到USB接口的模组
 
-	1.插入Quectel模组前后，在Terminal中输入lsusb 命令，插入模组后发现多出一个VID是2C7C的模组；
-	2.sudo dmesg | grep usb ，插拔模组无内核错误信息打印，有枚举有关信息
+1. Check Hardware connection, Make sure the Ubuntu can recognize the USB device.
+	
+	1.Before and after the Quectel module was inserted, try  lsusb  command in  your Terminal. After the module was inserted, there will be an USB device of which the vid is 0x2C7C.
+
+	2. "sudo dmesg | grep usb", plug and unplug module no kernel error message printing, enumeration information
+
 ![1.png](https://i.loli.net/2020/09/30/RbmdXOAu7e3vZPY.png)
 
 2.确认是否注网成功
