@@ -24,6 +24,6 @@ git push -u origin main
 
 sleep 1s
 
-QuectelWB
+#QuectelWB
 
 echo "####### ÍÆËÍ³É¹¦ #######"
