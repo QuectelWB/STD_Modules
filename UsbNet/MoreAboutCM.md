@@ -6,12 +6,17 @@ quectel-CM is the recommended way for the RMNET interface modules to set up data
 
 ``` sequence
 title: the QMI between modules and the Host AP
-participant Host AP
-participant Quectel Modules
+participant HostAP
+participant QuectelModules
 
-Host AP -> Quectel Modules : QMICTL_SYNC_REQ
-Quectel Modules-> Host AP : 是啊
-Host AP -> Quectel Module : 
-Host AP -> Quectel Modules : 哈，小王！\n最近身体怎么样了？
-Quectel Modules -> Host AP : 还可以吧
+HostAP -> QuectelModules: QMICTL_SYNC_REQ
+QuectelModules->HostAP: 是啊
+HostAP->QuectelModule : ...
+HostAP-> QuectelModules : ...
+QuectelModules->HostAP: 还可以吧
 ```
+
+detailed please refer to 
+[kba-20190602_guide_to_use_qmap](https://knowledge.quectel.com/display/FAEinternalsharing/01-2020.02.11-driver-kba-20190602_guide_to_use_qmap)
+
+This doc can be accessed by the Quectel.
