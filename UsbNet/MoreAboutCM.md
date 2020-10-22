@@ -10,10 +10,11 @@ participant HostAP
 participant QuectelModules
 
 HostAP -> QuectelModules: QMICTL_SYNC_REQ
-QuectelModules->HostAP: 是啊
+QuectelModules->HostAP: QMICTL_SYNC_RESP
 HostAP->QuectelModule : ...
-HostAP-> QuectelModules : ...
-QuectelModules->HostAP: 还可以吧
+QuectelModules->HostAP: ...
+HostAP->QuectelModules: QMIWDS_GET_PKT_SRVC_STATUS_REQ
+QuectelModules->HostAP: QMIWDS_GET_PKT_SRVC_STATUS _RESP
 ```
 
 detailed please refer to 
