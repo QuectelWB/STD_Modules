@@ -1,7 +1,41 @@
-对高手本节客户忽略，建议客户自行检查编译报错
+To the superior this section customer ignores, suggests the customer to check the compilation error by itself
 
 Ubuntu 
 
-交叉编译
+All the tools and driver source code Quectel releases have been verified on mainstream Liunx systems, from kernel 2.6 to the latest kernel versions, but there are cases where the customer has encountered problems during compilation.
 
-Quectel发布的所有工具和驱动源码在主流Liunx系统上、从内核2.6到最新内核版本上都验证过，但是不排除客户编译过程遇到问题的情况。
+
+### SecureBoot
+
+
+![](VM_SecureBoot.png)
+
+
+### 
+
+
+### Stdarg.h
+
+You might meet this: 
+
+![](stdarg.h)
+
+
+Add this into Makefile:
+	ccflags-y = -Wno-declaration-after-statement -mpopcnt -I/usr/lib/gcc/x86_64-linux-gnu/5.4.0/include
+
+
+###
+
+
+
+
+###
+
+
+
+
+###
+
+
+
