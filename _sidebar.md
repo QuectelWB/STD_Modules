@@ -45,7 +45,7 @@
   - [General](Build/general)
   
 
-- FAQs
+* FAQs
 
   - [common issues](/FAQs/01.FAQ)
   - [Open_Dev_Failed](FAQs/02.open_dev_failed)
