@@ -3,6 +3,8 @@ Actually it is not good idea to put ppp in this chapter.
 ppp won't occupy an USB interface descriptor. 
 ppp is one way the modules to set up data call on the data link layer. Normally the modules will use the USB interface 3 (you can call it ttyPPP port, or ttyModem port, it will be shown as a modem in the devmgmt on Windows OS.) to start a ppp connection.
 
+Point - to - Point Protocol (PPP) is a communication protocol of the data link layer that is used to transmit multiprotocol data between two directly connected (point-to-point) computers. It is a byte - oriented protocol that is widely used in broadband communications having heavy loads and high speeds. Since it is a data link layer protocol, data is transmitted in frames. It is also known as RFC 1661.
+
 
 /*
  * Exit status values.
@@ -52,6 +54,26 @@ The first time the ppp dial up OK. And once we shutdown the pppd process, we can
 I conclude those attention:
 
 	1. Kill the prorcess by "killall pppd" works fine, but "kill -9 ${PID}" will not.
+
 	2. killall will show 
 
 ![](pppdkillall.png)
+
+	and you'll see the ppp end up normally.
+	
+	3.kill -9 ${PID} you can see nothing about how the pppd process ends up.
+
+---
+
+### the difference between SIGINT,SIGTERM,SIGHUP
+
+to be done..
+
+waiting ...
+
+---
+
+More about PPP protocol
+
+[Point to Point Protocol(PPP) by vkota1.@sycamores.indstate.edu](http://cs.indstate.edu/~vkota1/main.pdf)
+

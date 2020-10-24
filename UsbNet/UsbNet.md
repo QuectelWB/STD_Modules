@@ -55,7 +55,7 @@ automotive OpenLinux
 at+qcfg="usbnet",2
 Win10 Notebooks,EM/E Serials
 </td><td>CONFIG_USB_NET_CDC_MBIM
-KernelVersion >= 3.18
+KernelVersion >= 3.9
 </td><td>mbim protocol
 libmbim(Ubuntu)
 quectel-M</td><td>MBIM Frame</td></tr>
