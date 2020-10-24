@@ -7,6 +7,12 @@ All the tools and driver source code Quectel releases have been verified on main
 
 ### SecureBoot
 
+	modprobe: unsigned module loading is restricted; see man kernel_lockdown.7
+
+rootcause:
+	
+[SecureBoot](https://unix.stackexchange.com/questions/543576/modprobe-fails-with-operation-not-permitted)
+
 
 ![](VM_SecureBoot.png)
 
