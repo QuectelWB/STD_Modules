@@ -1,14 +1,13 @@
 Actually it is not good idea to put ppp in this chapter.
 
 ppp won't occupy an USB interface descriptor. 
+
 ppp is one way the modules to set up data call on the data link layer. Normally the modules will use the USB interface 3 (you can call it ttyPPP port, or ttyModem port, it will be shown as a modem in the devmgmt on Windows OS.) to start a ppp connection.
 
 Point - to - Point Protocol (PPP) is a communication protocol of the data link layer that is used to transmit multiprotocol data between two directly connected (point-to-point) computers. It is a byte - oriented protocol that is widely used in broadband communications having heavy loads and high speeds. Since it is a data link layer protocol, data is transmitted in frames. It is also known as RFC 1661.
 
 
-/*
- * Exit status values.
- */
+``` Exit status values.
 
 	#define EXIT_OK			0
 	#define EXIT_FATAL_ERROR	1
@@ -34,7 +33,7 @@ Point - to - Point Protocol (PPP) is a communication protocol of the data link l
 	#define EXIT_TRAFFIC_LIMIT	20
 	#endif
 	#define	 EXIT_CNID_AUTH_FAILED	21
-
+```
 
 [pppd.h](http://androidos.net.cn/android/9.0.0_r8/xref/external/ppp/pppd/pppd.h)
 
