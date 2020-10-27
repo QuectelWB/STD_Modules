@@ -83,6 +83,10 @@ There exsits qmi driver in the Linux Kernel from version 3.4.
 It can be used on Quectel LTE modules.
 However, Quectel IP Multiplexing and IP Aggregation is not supported on that driver. 
 
+QMI will match interface 4 with itself.
+
+![](qmi_if4.png)
+
 
 
 ### GobiNet ###
@@ -112,6 +116,9 @@ When QMAP enabled, GobiNet or QMI_WWAN transfer QMAP Packet over USB BUS.
  
 EC21/EC25/EG06/EP06/EM06/EG12/EP12/EM12/EG16/EG18/EM20/RG500 all support QMAP. 
 
+Ex06/Ex12/EM20/Rx500Q will force to use QMAP. 
+
+![](qmi_wwan_bind_force.png)
 
 	[244838.067277] usbcore: registered new interface driver qmi_wwan_q 
 	[244844.970420] usb 2-1.2: new high-speed USB device number 22 using sunxi-ehci 
