@@ -1,15 +1,21 @@
-USB串口包括
+UsbSerial
+======
 
-	DM(调试、升级固件)端口;
-	GPS（输出GPS定位信息）端口；
-	AT端口；
-	ppp（调制解调器、ppp拨号）端口；
 
-ppp 端口用于 Linux 侧和模块进行 PPP-Modem 拨号命令及数据业务的交互，同样可以发送AT指令。 
-如果当前系统中无其他ttyUSB设备节点，当Linux内核集成option驱动后，接上Quectel模组，会生成设备节点/dev/ttyUSB0、/dev/ttyUSB1、/dev/ttyUSB2、/dev/ttyUSB3。
+	DM Port (for diagnose, firmware upgrading);
+	GPS Port (for nmea log output)
+	AT Port (For AT cmd test)
+	ppp Port (Also known as modem, can be used for AT cmd test too);
 
-## 添加VID、PID ##
-在${KERNELDIR}/driver/usb/serial/option.c中，添加Quectel模组的VID和PID信息。
+
+If there no any other ttyUSB device exists, you'll see device nodes created:
+	/dev/ttyUSB0, /dev/ttyUSB1, dev/ttyUSB2, /dev/ttyUSB3 
+
+
+Add PID and VID
+-----
+
+Add Quectel VID and PID into ${KERNELDIR}/driver/usb/serial/option.c
     
 	static const struct usb_device_id option_ids[] = {   
 	#if 1 //Added by Quectel
@@ -29,9 +35,14 @@ ppp 端口用于 Linux 侧和模块进行 PPP-Modem 拨号命令及数据业务�
 	{ USB_DEVICE(0x2C7C, 0x0800) }, /* Quectel RG500Q/RM500Q/RG510Q/RM510Q */   
 	#endif  
 
-## 添加零包支持机制 ##
-主机控制器要支持处理0包的能力。
-在${KERNELDIR}/driver/usb/serial/usb_wwan.c中
+
+Add the Zero Packet Mechanism
+------
+
+As required by the USB protocol, the mechanism for processing zero packets needs to be added during 
+bulk-out transmission by adding the following statements. 
+
+${KERNELDIR}/driver/usb/serial/usb_wwan.c
 
 	static struct urb *usb_wwan_setup_urb(struct usb_serial *serial, 
 	int endpoint,        
@@ -41,7 +52,7 @@ ppp 端口用于 Linux 侧和模块进行 PPP-Modem 拨号命令及数据业务�
 	int len,
 	void (*callback) (struct urb *))   
 	{   
-	……   
+	...
 	usb_fill_bulk_urb(urb, serial->dev,   
 	      usb_sndbulkpipe(serial->dev, endpoint)|dir,buf,len,callback,ctx);
 	 #if 1   //Added by Quectel for zero packet
@@ -54,11 +65,15 @@ ppp 端口用于 Linux 侧和模块进行 PPP-Modem 拨号命令及数据业务�
 	return urb;   
 	}  
 
-## PM机制 ##
-在${KERNELDIR}/driver/usb/serial/option.c中，
+
+
+PM
+-------
+
+${KERNELDIR}/driver/usb/serial/option.c
 
 	static struct usb_serial_driver option_1port_device = {   
-	……   
+	......
 	#ifdef CONFIG_PM   
 	   .suspend           = usb_wwan_suspend,   
 	   .resume            = usb_wwan_resume,   
@@ -68,13 +83,17 @@ ppp 端口用于 Linux 侧和模块进行 PPP-Modem 拨号命令及数据业务�
 	#endif   
 	};   
 
-## 预留网络接口 ##
-USB接口4一般用作网络设备，在${KERNELDIR}/driver/usb/serial/option.c中
 
-	static int option_probe（  
+Reserve Interface for Net
+------
+
+For RMNET/ECM/MBIM interface,
+USB interface 4 is for net interface , ${KERNELDIR}/driver/usb/serial/option.c
+
+	static int option_probe {
 	...  
 	#if 1  //Added by Quectel   
-	//Quectel modules’s interface 4 can be used as USB network device   
+	//Quectel modules's interface 4 can be used as USB network device   
 	       if (serial->dev->descriptor.idVendor == cpu_to_le16(0x2C7C)) {   
 	       //some interfaces can be used as USB Network device (ecm, rndis, mbim)   
 	       if (serial->interface->cur_altsetting->desc.bInterfaceClass != 0xFF) {   
@@ -87,15 +106,28 @@ USB接口4一般用作网络设备，在${KERNELDIR}/driver/usb/serial/option.c�
 	       }   
 	#endif   
 
+For RNDIS interface 
 
-## 内核编译配置 ##
+rndis_host would match the interface 0 and 1, and the option would match interface 2 to 5. So the option_probe would add as follow
 
-检查内核编译对应.config中是否有以下选项
-USB串口驱动相关的配置项：  
+![](rndis.png)
+
+
+Kernel Config
+------
+Those are needed:
 
 	CONFIG_USB_SERIAL=y  
 	CONFIG_USB_SERIAL_OPTION=y 
 
-## 模块源码编译 ##
 
-对Ubuntu PC，或内核中option驱动编译成内核模块，即 <font color="red">*CONFIG_USB_SERIAL_OPTION=m* </font> 的情况，Quectel提供了可以直接在Ubuntu PC上编译安装的USB串口驱动的源码。如<font color="red">*Quectel_Linux_USB_Serial_Option_Driver_20200720.tgz* </font> ，解压可以得到从内核2.6到最新内核版本的USB串口驱动，在Ubuntu PC上，直接make && sudo make install 即成功。对嵌入式系统需要交叉编译的情况，需要修改Makefile，编译得到的option.ko拷贝到目标平台的/lib/modules/xxx/ 目录中。
+Ubuntu PC
+------
+
+
+In the case that an Option driver in Ubuntu PC or kernel is compiled into a kernel module, CONFIG_USB_SERIAL_OPTION=m, Quectel provides the source code for a USB serial driver that can be compiled and installed directly on an Ubuntu PC.
+ For example, quectel_linux_USB_serial_option_DRIVER_20200720.tgz, unzip can get the USB serial port driver from kernel 2.6 to the latest kernel version, on Ubuntu PC,  "make" && "sudo make install" is successful. 
+In the case of cross-compilation of embedded system, the Makefile needs to be modified, and the option.ko obtained by compilation is copied to /lib/modules/ XXX/directory of the target platform.
+
+
+

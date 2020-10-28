@@ -62,6 +62,10 @@ I conclude those attention:
 	
 	3.kill -9 ${PID} you can see nothing about how the pppd process ends up.
 
+
+
+
+
 ---
 
 ### the difference between SIGINT,SIGTERM,SIGHUP
