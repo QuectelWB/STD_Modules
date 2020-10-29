@@ -1,11 +1,11 @@
-# udev能做什么
+# udev can be used for
 
-利用udev可以实现
+- fixed the module with the fixed device node, makes the application program more easier;
 
-- 插拔USB接口的Quectel模组，固定设备节点，避免应用程序的麻烦；
-- 实现插拔模组，自动拨号
+- make the hotplug possible 
 
-#什么是udev
+
+# What is udev
 
 udev是一种工具，它能够根据系统中的硬件设备的状态动态更新设备文件，包括设备文件的创建，删除等，设备文件通常放在/dev目录下。使用udev后，在/dev目录下就只包含系统中真正存在的设备。udev同时提供了监视接口，当设备的状态改变时，监视接口可以向应用程序报告发生的事件，当设备加入系统或从系统移除时都可以接到通知。
 
@@ -20,7 +20,7 @@ udev能够实现所有devfs实现的功能。但udev运行在用户模式中，�
 
 
 	
-## udev 编程的例子 ##
+## examples ##
 
 
 	// https://blog.csdn.net/u012247418/article/details/80555556
@@ -198,7 +198,7 @@ gcc -o udevhotplug udev-hotplugin.c -ludev
 	UEVENT[1602138824.825470] add      /devices/pci0000:00/0000:00:14.0/usb2/2-2/2-2:1.0/host4/target4:0:0/4:0:0:0/scsi_generic/sg2 (scsi_generic)
 	UEVENT[1602138824.836199] add      /devices/virtual/bdi/8:32 (bdi)
 
-## udev规则固定ttyUSB ##
+## udev to make the ttyUSB fixed##
 
 可以通过添加udev规则的方式。譬如，接上EC25模组，希望驱动加载后，生成的端口固定。
 
@@ -242,6 +242,17 @@ gcc -o udevhotplug udev-hotplugin.c -ludev
 
 mdev是busybox中的一个udev管理程序的一个精简版，他也可以实现设备节点的自动创建和设备的自动挂载，在实现的过程中有点差异，在发生热插拔时间的时候，mdev是被hotplug直接调用，这时mdev通过环境变量中的 ACTION 和 DEVPATH，来确定此次热插拔事件的动作以及影响了/sys中的那个目录。接着会看看这个目录中是否有“dev”的属性文件，如果有就利用这些信息为这个设备在/dev 下创建设备节点文件。
 
+
+
+## fixed with the fixed hub port 
+
+If you fixed the module with the fixed hub port, the sysfs path might be fixed.
+
+One excellent found that. So he fixed the module with the hub port by modifying the usbnet.c.
+
+As this way.
+
+![](usbnet_adapter.png)
 
 ## 参考文档
 
