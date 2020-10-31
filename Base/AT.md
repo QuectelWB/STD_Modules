@@ -20,3 +20,11 @@ make sure that a vaild sim card has inserted first.
 ### Network Service Check
 
 if the module
+
+
+### About LTE
+
+[LTE](http://forge.test.iminds.be/lte/)
+
+
+
