@@ -1,11 +1,27 @@
 # Abouts <!-- {docsify-ignore-all} -->
 
-EMAIL:   wang_biao@126.com   bean.wang@quectel.com
+EMAIL: 
+
+[wang_biao@126.com]()
+[bean.wang@quectel.com]()
+[biaoneversurrender@hotmail.com]()
 
 Github: [MrVW](https://github.com/MrVW)  
 
-	[QuectelWB](https://github.com/QuectelWB)
+Other related:
 
-## Thanks for your support
+NetWork
 
-<span style="font-size:1px;">Thanks you! </span>
+[MrVW:NetWork](MrVW.github.io/NetWork/)
+
+myStudy
+
+[QuectelWB:myStudy](QuectelWB.github.io/myStudy)
+
+mytestCodes
+
+[QuectelWB:myCodes](QuectelWB.github.io/myCodes)
+
+
+## Thanks for your Support
+
