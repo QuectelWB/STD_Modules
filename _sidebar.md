@@ -37,7 +37,7 @@
   - [utility_of_udev](applications/udev)
   - [MAC_of_network_interface](applications/MAC_address_of_NetWork_interface)
   - [MutliModules](applications/MultiModulesIssue)
-  
+  - [about_pppd](applications/raspberry_ppp)
 
 - BuildIssules
 
@@ -52,6 +52,8 @@
   - [driver_not_match](FAQs/04.driver_not_match)
   - [UsefullShell](FAQs/05.usefull_shells)
   - [UbuntuIssuses](FAQs/06.Ubuntu.issuses)
+  - [UsbSysfs](FAQs/07.usbsysfs)
+
 
 - Abouts
 	- [WhoAmI](inits/about.md)
