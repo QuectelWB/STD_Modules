@@ -113,7 +113,11 @@ multiple IP Packets in one URB with increased throughput by reducing the number 
  
 When QMAP disabled, GobiNet or QMI_WWAN directly transfer IP Packet over USB BUS. 
 When QMAP enabled, GobiNet or QMI_WWAN transfer QMAP Packet over USB BUS. 
+
+Kernel Doc description:
+[QMAP](https://www.kernel.org/doc/html/v5.8/networking/device_drivers/qualcomm/rmnet.html)
  
+
 EC21/EC25/EG06/EP06/EM06/EG12/EP12/EM12/EG16/EG18/EM20/RG500 all support QMAP. 
 
 Ex06/Ex12/EM20/Rx500Q will force to use QMAP. 
