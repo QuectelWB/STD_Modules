@@ -2,7 +2,6 @@
 
 ----------
 
-[option](v5.3.11.zip)
 
 ## Quectel ##
 

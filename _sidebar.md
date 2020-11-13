@@ -53,7 +53,7 @@
   - [UsefullShell](FAQs/05.usefull_shells)
   - [UbuntuIssuses](FAQs/06.Ubuntu.issuses)
   - [UsbSysfs](FAQs/07.usbsysfs)
-
+  - [Usbnet_warnings](FAQs/08.kevent_may_have_been_dropped)
 
 - Abouts
 	- [WhoAmI](inits/about.md)
