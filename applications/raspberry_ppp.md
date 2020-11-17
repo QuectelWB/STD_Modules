@@ -1,9 +1,8 @@
-ppp拨号
+ppp
 ======
 
 sudo apt-get install ppp
 
-必要需要更换source_list
 
 follow the readme.
 
@@ -11,11 +10,14 @@ the easist way: run quectel-pppd.sh
 
 or
 
-quectel-chat-connect quectel-chat-disconnect quectel-ppp 到/etc/ppp/peers
+copy the quectel-chat-connect quectel-chat-disconnect quectel-ppp to /etc/ppp/peers
 
-修改 quectel-ppp和quectel-chat-connect
+modify the quectel-ppp and quectel-chat-connect
 
-最后执行 pppd call quectel-ppp &
+execute the cmd
+
+	
+	pppd call quectel-ppp &
 
 cross compile the pppd
 ---
@@ -26,7 +28,7 @@ wget http://samba.org/ftp/ppp/ppp-2.4.4.tar.gz
 
 then build it.
 
-**pppd 依赖 libcap 库**
+**pppd depends on the libcap **
 
 libpcap-0.9.6 (needed to do PPP filtering), Linux-PAM-0.99.10.0 (to authenticate incoming calls using PAM), and Linux ATM (to build the pppoatm.so plugin) .
 
