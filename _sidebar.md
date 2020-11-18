@@ -39,6 +39,7 @@
   - [MutliModules](applications/MultiModulesIssue)
   - [about_pppd](applications/raspberry_ppp)
   - [ModemManager](applications/ModemManager)
+  - [strace](applications/strace)
 
 - BuildIssules
 
