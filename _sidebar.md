@@ -38,6 +38,7 @@
   - [MAC_of_network_interface](applications/MAC_address_of_NetWork_interface)
   - [MutliModules](applications/MultiModulesIssue)
   - [about_pppd](applications/raspberry_ppp)
+  - [ModemManager](applications/ModemManager)
 
 - BuildIssules
 
