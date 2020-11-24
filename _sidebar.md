@@ -40,6 +40,7 @@
   - [about_pppd](applications/raspberry_ppp)
   - [ModemManager](applications/ModemManager)
   - [strace](applications/strace)
+  - [disconnect_USB_Device](applications/Disable_and_Enable_USB_from_terminal)
 
 - BuildIssules
 
