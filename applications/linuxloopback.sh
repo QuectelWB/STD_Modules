@@ -14,4 +14,10 @@ do
 	echo performance >  /sys/devices/system/cpu/cpufreq/policy$i/scaling_governor
 done
 
-
+echo 4194304 > /proc/sys/net/core/rmem_max 
+echo 4194304 > /proc/sys/net/core/wmem_max 
+echo 2097152 > /proc/sys/net/core/rmem_default 
+echo 2097152 > /proc/sys/net/core/wmem_default 
+echo 524288 2097152 4194304 > /proc/sys/net/ipv4/tcp_rmem 
+echo 524288 2097152 4194304 > /proc/sys/net/ipv4/tcp_wmem 
+echo 1 > /proc/sys/net/ipv4/tcp_window_scaling
