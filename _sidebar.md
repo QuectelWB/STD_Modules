@@ -41,6 +41,7 @@
   - [ModemManager](applications/ModemManager)
   - [strace](applications/strace)
   - [disconnect_USB_Device](applications/Disable_and_Enable_USB_from_terminal)
+  - [Android_Loopback](applications/Android_Loopback)
 
 - BuildIssules
 
