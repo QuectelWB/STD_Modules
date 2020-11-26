@@ -78,6 +78,28 @@ echo performance >  /sys/bus/cpu/devices/cpu1/cpufreq/scaling_governor
 
 写成[shell脚本](linuxloopback.sh)
 
+check
+
+	
+	kona:/data # cat /sys/bus/cpu/devices/cpu*/cpufreq/scaling_governor
+	performance
+	performance
+	performance
+	performance
+	performance
+	performance
+	performance
+	performance
+	kona:/data # cat /sys/bus/cpu/devices/cpu*/online
+	1
+	1
+	1
+	1
+	1
+	1
+	1
+	1
+	
 
 iperf2 回环测试
 -----
@@ -102,6 +124,169 @@ iperf2 回环测试
 启动以后
 
 可以用killall iperf kill掉上面两个iperf进程
+
+/data/busybox-armv8l  mpstat -P ALL 2
+
+	[  3] 135.0-136.0 sec  63.3 MBytes   531 Mbits/sec   0.625 ms    0/ 4456 (0%)
+	[  3] 135.00-136.00 sec  41251 datagrams received out-of-order
+
+	07:34:00     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
+	07:34:02     all    1.45    0.00    4.24    0.06    4.55    2.15    0.00    0.00   87.54
+	07:34:02       0    2.53    0.00   12.12    0.00    0.00    0.00    0.00    0.00   85.35
+	07:34:02       1    7.65    0.00    1.53    0.00    0.51    0.00    0.00    0.00   90.31
+	07:34:02       2    1.05    0.00   18.95    0.00    4.21    1.05    0.00    0.00   74.74
+	07:34:02       3    0.51    0.00    2.53    0.00   31.82    1.01    0.00    0.00   64.14
+	07:34:02       4    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+	07:34:02       5    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+	07:34:02       6    0.00    0.00    0.00    0.00    0.00    4.00    0.00    0.00   96.00
+	07:34:02       7    0.00    0.00    0.00    0.00    0.00   10.55    0.00    0.00   89.45
+	[  3] 136.0-137.0 sec  63.5 MBytes   532 Mbits/sec   0.665 ms    0/ 4459 (0%)
+	[  3] 136.00-137.00 sec  41317 datagrams received out-of-order
+
+
+
+实际测试过程
+-------
+
+> 第一次 50M 带宽,理论上限速率700M
+
+	/data/iperf -u -c 192.168.48.172 -b 50M -t 666  &
+	/data/iperf  -u -s -i 1 &
+	/data/busybox-armv8l  mpstat -P ALL 2
+
+实际结果
+	
+	[  3] 17.0-18.0 sec  63.5 MBytes   533 Mbits/sec   0.395 ms    0/ 4449 (0%)
+	[  3] 17.00-18.00 sec  41366 datagrams received out-of-order
+
+	07:39:01     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
+	07:39:03     all    1.52    0.06    4.36    0.00    4.49    2.15    0.00    0.00   87.41
+	07:39:03       0    2.05    0.00   13.85    0.00    0.00    0.00    0.00    0.00   84.10
+	07:39:03       1    1.55    0.00    8.29    0.00    2.07    0.52    0.00    0.00   87.56
+	07:39:03       2    1.55    0.00   10.88    0.00    2.59    0.52    0.00    0.00   84.46
+	07:39:03       3    6.97    0.00    2.99    0.00   30.85    1.49    0.00    0.00   57.71
+	07:39:03       4    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+	07:39:03       5    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+	07:39:03       6    0.00    0.00    0.00    0.00    0.00    4.00    0.00    0.00   96.00
+	07:39:03       7    0.00    0.00    0.00    0.00    0.00   11.06    0.00    0.00   88.94
+	[  3] 18.0-19.0 sec  62.3 MBytes   522 Mbits/sec   0.646 ms    0/ 4451 (0%)
+	[  3] 18.00-19.00 sec  40464 datagrams received out-of-order
+	[  3] 19.0-20.0 sec  58.8 MBytes   493 Mbits/sec   0.712 ms    0/ 4460 (0%)
+	[  3] 19.00-20.00 sec  38102 datagrams received out-of-order
+	
+> 第二次 50M 带宽, -P 10 
+
+        /data/iperf -u -c 192.168.48.172 -b 50M -t 666 -P 10  &
+        /data/iperf  -u -s -i 1 -P 10 &
+        /data/busybox-armv8l  mpstat -P ALL 2
+
+结果
+	
+	[ 13] 29.00-30.00 sec  7687 datagrams received out-of-order
+	[  9] 29.0-30.0 sec  14.1 MBytes   118 Mbits/sec   1.679 ms    0/ 1676 (0%)
+	[  9] 29.00-30.00 sec  9172 datagrams received out-of-order
+	[ 11] 29.0-30.0 sec  15.8 MBytes   133 Mbits/sec   3.807 ms    0/ 1781 (0%)
+	[ 11] 29.00-30.00 sec  10337 datagrams received out-of-order
+	[  7] 29.0-30.0 sec  14.7 MBytes   123 Mbits/sec   2.931 ms    0/ 1851 (0%)
+	[  7] 29.00-30.00 sec  9586 datagrams received out-of-order
+
+	07:47:47     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
+	07:47:49     all    3.00    0.06    8.50    0.00   11.56   10.25    0.00    0.00   66.62
+	07:47:49       0   10.20    0.00   17.35    0.00    0.51    1.02    0.00    0.00   70.92
+	07:47:49       1    5.18    0.52   17.10    0.00    1.04    0.52    0.00    0.00   75.65
+	07:47:49       2    9.14    0.00   15.74    0.00    1.52    1.02    0.00    0.00   72.59
+	07:47:49       3    0.00    0.00    4.33    0.00   83.17   11.54    0.00    0.00    0.96
+	07:47:49       4    0.00    0.00    1.52    0.00    1.02    0.00    0.00    0.00   97.46
+	07:47:49       5    0.00    0.00    0.50    0.00    0.50    0.50    0.00    0.00   98.51
+	07:47:49       6    0.00    0.00    2.05    0.00    0.51   14.87    0.00    0.00   82.56
+	07:47:49       7    0.00    0.00    9.72    0.00    1.39   49.54    0.00    0.00   39.35
+	[  3] 30.0-31.0 sec  9.84 MBytes  82.6 Mbits/sec   2.653 ms    0/ 1683 (0%)
+	
+	10个线程，速率没有提高。能看到cpu 3 出现问题了。
+
+
+
+> 第3次 50M 带宽
+
+	echo 80000 > /proc/sys/net/core/netdev_max_backlog 
+        /data/iperf -u -c 192.168.48.172 -b 50M -t 666   &
+        /data/iperf  -u -s -i 1  &
+        /data/busybox-armv8l  mpstat -P ALL 2
+
+实际结果没有改善
+	
+
+	Server listening on UDP port 5001
+	Receiving 1470 byte datagrams
+	UDP buffer size:  208 KByte (default)
+	------------------------------------------------------------
+	[  3] local 192.168.48.171 port 5001 connected with 192.168.48.172 port 37410
+	[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+	[  3]  0.0- 1.0 sec  62.2 MBytes   522 Mbits/sec   0.605 ms    0/33153 (0%)
+	[  3] 0.00-1.00 sec  40386 datagrams received out-of-order
+	[  3]  1.0- 2.0 sec  62.5 MBytes   524 Mbits/sec   0.525 ms    0/ 4446 (0%)
+	[  3] 1.00-2.00 sec  40619 datagrams received out-of-order
+	[  3]  2.0- 3.0 sec  62.8 MBytes   527 Mbits/sec   0.357 ms    0/ 4469 (0%)
+	[  3] 2.00-3.00 sec  40852 datagrams received out-of-order
+	[  3]  3.0- 4.0 sec  64.3 MBytes   539 Mbits/sec   0.637 ms    0/ 4451 (0%)
+	[  3] 3.00-4.00 sec  41913 datagrams received out-of-order
+	[  3]  4.0- 5.0 sec  62.4 MBytes   524 Mbits/sec   0.675 ms    0/ 4464 (0%)
+		
+
+> 第4次 50M 带宽
+
+	echo 80000 > /proc/sys/net/core/netdev_max_backlog 
+	echo 4194304 > /proc/sys/net/core/rmem_max 
+	echo 4194304 > /proc/sys/net/core/wmem_max 
+	echo 2097152 > /proc/sys/net/core/rmem_default 
+	echo 2097152 > /proc/sys/net/core/wmem_default 
+	echo 524288 2097152 4194304 > /proc/sys/net/ipv4/tcp_rmem 
+	echo 524288 2097152 4194304 > /proc/sys/net/ipv4/tcp_wmem 
+	echo 1 > /proc/sys/net/ipv4/tcp_window_scaling
+        /data/iperf -u -c 192.168.48.172 -b 50M -t 666   &
+        /data/iperf  -u -s -i 1  &
+        /data/busybox-armv8l  mpstat -P ALL 2
+
+
+明显有改善。值得注意的是 UDP buffer size 从上面的 208k变成了2M
+	
+	Server listening on UDP port 5001
+	Receiving 1470 byte datagrams
+	UDP buffer size: 2.00 MByte (default)
+	------------------------------------------------------------
+	[  3] local 192.168.48.171 port 5001 connected with 192.168.48.172 port 34559
+	[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+	[  3]  0.0- 1.0 sec  87.9 MBytes   738 Mbits/sec   0.610 ms 54489/117225 (46%)
+	[  3] 0.00-1.00 sec  58252 datagrams received out-of-order
+	[  3]  1.0- 2.0 sec  87.5 MBytes   734 Mbits/sec   0.686 ms    0/ 4455 (0%)
+	[  3] 1.00-2.00 sec  57935 datagrams received out-of-order
+	[  3]  2.0- 3.0 sec  87.5 MBytes   734 Mbits/sec   0.672 ms    0/ 4460 (0%)
+	[  3] 2.00-3.00 sec  57966 datagrams received out-of-order
+
+此时的CPU性能 /data/busybox mpstat -P ALL 2
+
+	
+[  3] 207.00-208.00 sec  57697 datagrams received out-of-order
+
+	08:18:46     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
+	08:18:48     all    2.10    0.13    4.64    0.00    4.58    2.16    0.00    0.00   86.40
+	08:18:48       0    2.07    0.52   16.58    0.00    0.52    0.00    0.00    0.00   80.31
+	08:18:48       1    9.84    0.00    4.15    0.00    1.04    0.00    0.00    0.00   84.97
+	08:18:48       2    4.71    0.00   13.61    0.00    3.66    1.05    0.00    0.00   76.96
+	08:18:48       3    0.51    1.01    3.03    0.00   31.82    1.01    0.00    0.00   62.63
+	08:18:48       4    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+	08:18:48       5    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+	08:18:48       6    0.00    0.00    0.00    0.00    0.00    4.00    0.00    0.00   96.00
+	08:18:48       7    0.00    0.00    0.00    0.00    0.00   10.61    0.00    0.00   89.39
+	[  3] 208.0-209.0 sec  87.8 MBytes   737 Mbits/sec   0.651 ms    0/ 4474 (0%)
+	[  3] 208.00-209.00 sec  58166 datagrams received out-of-order
+	[  3] 209.0-210.0 sec  87.2 MBytes   731 Mbits/sec   0.577 ms    0/ 4446 (0%)
+	[  3] 209.00-210.00 sec  57752 datagrams received out-of-order
+
+
+从CPU利用方面，没有达到性能瓶颈。
+
+
 
 
 
