@@ -76,7 +76,7 @@ echo performance >  /sys/bus/cpu/devices/cpu3/cpufreq/scaling_governor
 echo performance >  /sys/bus/cpu/devices/cpu2/cpufreq/scaling_governor
 echo performance >  /sys/bus/cpu/devices/cpu1/cpufreq/scaling_governor
 
-写成[shell脚本](linuxloopback.sh)
+写成[shell脚本](applications/linuxloopback.sh)
 
 check
 
@@ -148,7 +148,7 @@ iperf2 回环测试
 实际测试过程
 -------
 
-> 第一次 50M 带宽,理论上限速率700M
+> 第1次 50M 带宽,理论上限速率700M
 
 	/data/iperf -u -c 192.168.48.172 -b 50M -t 666  &
 	/data/iperf  -u -s -i 1 &
@@ -174,7 +174,7 @@ iperf2 回环测试
 	[  3] 19.0-20.0 sec  58.8 MBytes   493 Mbits/sec   0.712 ms    0/ 4460 (0%)
 	[  3] 19.00-20.00 sec  38102 datagrams received out-of-order
 	
-> 第二次 50M 带宽, -P 10 
+> 第2次 50M 带宽, -P 10 
 
         /data/iperf -u -c 192.168.48.172 -b 50M -t 666 -P 10  &
         /data/iperf  -u -s -i 1 -P 10 &
@@ -265,8 +265,6 @@ iperf2 回环测试
 
 此时的CPU性能 /data/busybox mpstat -P ALL 2
 
-	
-[  3] 207.00-208.00 sec  57697 datagrams received out-of-order
 
 	08:18:46     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
 	08:18:48     all    2.10    0.13    4.64    0.00    4.58    2.16    0.00    0.00   86.40
@@ -284,11 +282,46 @@ iperf2 回环测试
 	[  3] 209.00-210.00 sec  57752 datagrams received out-of-order
 
 
-从CPU利用方面，没有达到性能瓶颈。
+从CPU利用方面看，并没有达到性能瓶颈。
 
 
+> 第5次 100M 带宽
 
+        /data/iperf -u -c 192.168.48.172 -b 100M -t 666   &
+        /data/iperf  -u -s -i 1  &
+        /data/busybox-armv8l  mpstat -P ALL 2
+	此时UDP buffer 大写也是2M
 
+结果是
+	
+	Server listening on UDP port 5001
+	Receiving 1470 byte datagrams
+	UDP buffer size: 2.00 MByte (default)
+	------------------------------------------------------------
+	[  3] local 192.168.48.171 port 5001 connected with 192.168.48.172 port 34813
+	[ ID] Interval       Transfer     Bandwidth        Jitter   Lost/Total Datagrams
+	[  3]  0.0- 1.0 sec   175 MBytes  1.47 Gbits/sec   0.435 ms    0/47300 (0%)
+	[  3] 0.00-1.00 sec  116193 datagrams received out-of-order
+	[  3]  1.0- 2.0 sec   175 MBytes  1.47 Gbits/sec   0.333 ms    0/ 8920 (0%)
+	[  3] 1.00-2.00 sec  115968 datagrams received out-of-order
+	[  3]  2.0- 3.0 sec   173 MBytes  1.45 Gbits/sec   0.265 ms    0/ 8920 (0%)
+	[  3] 2.00-3.00 sec  114528 datagrams received out-of-order
+	[  3]  3.0- 4.0 sec   172 MBytes  1.44 Gbits/sec   0.369 ms    0/ 8911 (0%)
+
+速率稳定
+
+	08:45:06     CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest   %idle
+	08:45:08     all    3.49    0.32    7.93    0.00    7.86    3.99    0.00    0.00   76.41
+	08:45:08       0    1.51    0.00   29.15    0.00   56.28    2.51    0.00    0.00   10.55
+	08:45:08       1   10.15    0.00    2.03    0.00    0.51    0.00    0.00    0.00   87.31
+	08:45:08       2    2.11    1.58   23.16    0.00    4.21    1.05    0.00    0.00   67.89
+	08:45:08       3   15.10    0.00    8.33    0.00    1.04    0.52    0.00    0.00   75.00
+	08:45:08       4    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+	08:45:08       5    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+	08:45:08       6    0.00    1.01    0.00    0.00    0.00    7.04    0.00    0.00   91.96
+	08:45:08       7    0.00    0.00    0.50    0.00    0.00   20.60    0.00    0.00   78.89
+
+可知依然没有到性能瓶颈
 
 
 
