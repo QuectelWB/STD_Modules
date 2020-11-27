@@ -250,7 +250,8 @@ Normally there are two possible ways.
 > Modify the driver source code
 
 - 5G qmi_wwan_q
-
+	
+	
 	qmap_register_device
 	...
 	#if 0 //ANDROID/system/netd/server/NetdConstants.cpp:isIfaceName() do not allow '.'
@@ -258,6 +259,7 @@ Normally there are two possible ways.
 	#else
 	    sprintf(qmap_net->name, "%s.%d", real_dev->name, offset_id + 1);
 	#endif
+	
 
 - fixed with the fixed hub port 
 
