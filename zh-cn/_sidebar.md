@@ -1,16 +1,16 @@
-- [Introductions](/)
+- [介绍](/)
 
 - QuickStart
 
-  - [EasyStart](/EasyStart/EasyStart)
+  - [快速开始](/EasyStart/EasyStart)
 
 
 - BaseTerms
 
-  - [HardWare](/Base/HardWare)
-  - [AT Commands](/Base/AT)
-  - [Network](/Base/NetWork)
-  - [USB Protocol](/Base/UsbProtocolBase)
+  - [硬件](/Base/HardWare)
+  - [AT指令](/Base/AT)
+  - [网络](/Base/NetWork)
+  - [USB协议](/Base/UsbProtocolBase)
 
 
 
