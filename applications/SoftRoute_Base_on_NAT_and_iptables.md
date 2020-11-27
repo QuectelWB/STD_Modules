@@ -1,16 +1,17 @@
-实现一个CPE(或者软路由)，将Quectel网卡作为外网接口，满足整个系统的网络连接需求。可选方法
+CPE(or soft route)
+=====
 
+	the Quectel network card as the external network interface, to meet the network connection needs of the whole system.
 
-
--
-
-
+There is an optional methods
 
 
 ![image2020-9-28_23-57-25.png](https://i.loli.net/2020/09/30/JfKg45UjGXHFVPw.png)
 
 
+Same like
 
+![](windows_internel_share.jpg)
 
 
 
