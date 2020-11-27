@@ -243,8 +243,23 @@ gcc -o udevhotplug udev-hotplugin.c -ludev
 mdev是busybox中的一个udev管理程序的一个精简版，他也可以实现设备节点的自动创建和设备的自动挂载，在实现的过程中有点差异，在发生热插拔时间的时候，mdev是被hotplug直接调用，这时mdev通过环境变量中的 ACTION 和 DEVPATH，来确定此次热插拔事件的动作以及影响了/sys中的那个目录。接着会看看这个目录中是否有“dev”的属性文件，如果有就利用这些信息为这个设备在/dev 下创建设备节点文件。
 
 
+## change the NetWork Interface name
 
-## fixed with the fixed hub port 
+Normally there are two possible ways.
+
+> Modify the driver source code
+
+- 5G qmi_wwan_q
+
+	qmap_register_device
+	...
+	#if 0 //ANDROID/system/netd/server/NetdConstants.cpp:isIfaceName() do not allow '.'
+	    sprintf(qmap_net->name, "%s_%d", real_dev->name, offset_id + 1);
+	#else
+	    sprintf(qmap_net->name, "%s.%d", real_dev->name, offset_id + 1);
+	#endif
+
+- fixed with the fixed hub port 
 
 If you fixed the module with the fixed hub port, the sysfs path might be fixed.
 
@@ -253,6 +268,14 @@ One excellent found that. So he fixed the module with the hub port by modifying 
 As this way.
 
 ![](usbnet_adapter.png)
+
+> udev
+
+touch a rules in /etc/udev/rules.d
+
+Contents can be:
+	
+	SUBSYSTEM=="net", ACTION=="add", DRIVERS=="qmi_wwan_q",  ATTR{type}=="1", KERNEL=="rmnet_usb*", NAME="usb0" 
 
 ## 参考文档
 
