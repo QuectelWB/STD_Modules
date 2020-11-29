@@ -18,7 +18,7 @@ sleep 2s
 echo "####### commit done, start git push #######"
 
 
-git push -u origin main
+git push -u origin ch-zh
 
 sleep 1s
 
