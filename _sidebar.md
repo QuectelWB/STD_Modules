@@ -59,7 +59,7 @@
   - [UsbSysfs](FAQs/07.usbsysfs)
   - [Usbnet_warnings](FAQs/08.kevent_may_have_been_dropped)
   - [catch_logs](FAQs/09.log)
-
+  - [PowerManagement](FAQs/10.PM)
 
 - Abouts
 	- [WhoAmI](inits/about.md)
