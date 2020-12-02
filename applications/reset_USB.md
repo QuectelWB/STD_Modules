@@ -6,7 +6,8 @@
 	接了USB串口，占用了ttyUSB0
 	应用程序出错了。打开ttyUSBx出错，但未关闭ttyUSBx，设备重新枚举时，ttyUSBx资源未释放
 	
-## 重置USB总线 ##
+重置USB总线
+---------
 
 参考 
 
@@ -64,9 +65,11 @@ sudo ./reset /dev/bus/usb/006/002
 
 可以看到设备重新枚举
 
+ubind
+----
 
 
-
+echo '2-1.6' | sudo tee /sys/bus/usb/drivers/usb/unbind
 
 
 
