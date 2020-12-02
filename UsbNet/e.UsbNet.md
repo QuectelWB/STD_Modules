@@ -35,10 +35,10 @@ table.tftable td {font-size:12px;border-width: 1px;padding: 8px;border-style: so
 <table id="tfhover" class="tftable" border="1">
 
 <tr><th>Net Interface Type</th><th>LinuDriver</th><th>Dialup Way</th><th>Physical</th></tr>
-<tr><td>rmnet/qmi/ndis <br/>
-</br>at+qcfg="usbnet",0
+<tr><td>rmnet/qmi/ndis
+at+qcfg="usbnet",0
 </td><td>qmi_wwan&cdc_wdm
-CONFIG_USB_NET_QMI_WWAN<br/></br>
+CONFIG_USB_NET_QMI_WWAN
 KernelVersion >= 3.4 | 
 GobiNet
 
@@ -216,7 +216,7 @@ Kconfig
 		select USB_WDM
 		select USB_NET_CDC_NCM
 
-lsusb -t
+
 
     |__ Port 4: Dev 15, If 3, Class=Vendor Specific Class, Driver=option, 480M
     |__ Port 4: Dev 15, If 1, Class=Vendor Specific Class, Driver=option, 480M
