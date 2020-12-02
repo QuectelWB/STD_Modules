@@ -216,6 +216,17 @@ Kconfig
 		select USB_WDM
 		select USB_NET_CDC_NCM
 
+
+    |__ Port 4: Dev 15, If 3, Class=Vendor Specific Class, Driver=option, 480M
+    |__ Port 4: Dev 15, If 1, Class=Vendor Specific Class, Driver=option, 480M
+    |__ Port 4: Dev 15, If 8, Class=Audio, Driver=snd-usb-audio, 480M
+    |__ Port 4: Dev 15, If 6, Class=Audio, Driver=snd-usb-audio, 480M
+    |__ Port 4: Dev 15, If 4, Class=Communications, Driver=cdc_mbim, 480M
+    |__ Port 4: Dev 15, If 2, Class=Vendor Specific Class, Driver=option, 480M
+    |__ Port 4: Dev 15, If 0, Class=Vendor Specific Class, Driver=option, 480M
+    |__ Port 4: Dev 15, If 7, Class=Audio, Driver=snd-usb-audio, 480M
+    |__ Port 4: Dev 15, If 5, Class=CDC Data, Driver=cdc_mbim, 480M
+
 ----------
 
 

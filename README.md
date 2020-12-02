@@ -28,7 +28,7 @@ As the EMBEDDED operating system runs on AP and there are various peripherals in
 Generally speaking, remote module is connected to another embedded processor through USB/PCIe/Uart, which is called Host AP, OR EAP, or External AP. Remote communication module is used as a device, and the driver required by porting module on Host AP is used. This scheme is called standard module scheme.
 
 
-![Quectel_modules_stuff.png](https://i.loli.net/2020/09/29/bk4wJGADRZiYxst.png)
+![Quectel_modules_stuff.png](Quectel_Modules.png)
 
 ----------
 Links:
