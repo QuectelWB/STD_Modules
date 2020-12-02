@@ -52,8 +52,24 @@ if you failed, modify the qmi_wwan_q.c as follow
 
 对5G模组，以下两个结构体也要加上
 
-		+  .ndo_set_mac_address = qmi_wwan_mac_addr,
-		+  .ndo_validate_addr = eth_validate_addr,
+	+  .ndo_set_mac_address = qmi_wwan_mac_addr,
+	+  .ndo_validate_addr = eth_validate_addr,
 
-![qmi_mac_patch.png](https://i.loli.net/2020/10/09/gatmWdB7jCZMeGI.png)
+qmi_wwan_q.c
+	
+	static const struct net_device_ops qmap_netdev_ops = {
+		.ndo_open       = qmap_open,
+		.ndo_stop       = qmap_stop,
+		.ndo_start_xmit = qmap_start_xmit,
+	};
+
+	static const struct net_device_ops rmnet_vnd_ops = {
+		.ndo_open       = qmap_open,
+		.ndo_stop       = qmap_stop,
+		.ndo_start_xmit = rmnet_vnd_start_xmit,
+		.ndo_change_mtu = rmnet_vnd_change_mtu,
+	#if defined(MHI_NETDEV_STATUS64)
+		.ndo_get_stats64	= rmnet_vnd_get_stats64,
+	#endif
+	};
 

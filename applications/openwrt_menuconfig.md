@@ -1,7 +1,24 @@
 在sdk源码的package目录下创建文件夹quectel，将应用程序的源码和驱动放到quectel目录里，并添加Makefile；在源码根目录下make menuconfig的时候选择对应的工具，最后在源码根目录下的config中可以看到对应选项。
  
 OpenWrt添加package
-![openwrt.png](https://i.loli.net/2020/10/05/YJf3QkZUSEmdwjN.png)
+
+	SDK_DIR/package/quectel
+			|------	feeds	//将驱动和工具添加进的Makefile
+				|------	GobiNet
+				|------	pcie_mhi
+				|------	qmi_wwan_q
+				|------	QLog
+				|------	quectel-CM
+				|------	QFirehose
+			|------	src	//驱动和工具的源码
+				|------	GobiNet
+				|------	pcie_mhi
+				|------	qmi_wwan_q
+				|------	QLog
+				|------	quectel-CM
+				|------	QFirehose
+					
+		
 
 openwrt_sdk/package/quectel/feeds/GobiNet/
 [Makefile](applications/openwrt/package/quectel/feeds/GobiNet/Makefile)

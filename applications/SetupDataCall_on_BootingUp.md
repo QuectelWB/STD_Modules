@@ -42,7 +42,7 @@ Systemd 是 Linux 系统工具，用来启动守护进程，已成为大多数�
 
 [OpenWrt官方添加启动脚本方法介绍](https://oldwiki.archive.openwrt.org/doc/techref/initscripts)
 
-![openwrtinit.png](https://i.loli.net/2020/09/30/rlfP2SQhnIF7dzw.png)
+![](bootOpenWrt.png)
 
 执行/etc/init.d/quectel-CM enable
 

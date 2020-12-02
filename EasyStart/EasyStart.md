@@ -14,7 +14,13 @@ This chapter is for those who are not familar with LTE network, have never used 
 
 	2. "sudo dmesg | grep usb", plug and unplug module no kernel error message printing, enumeration information
 
-![1.png](https://i.loli.net/2020/09/30/RbmdXOAu7e3vZPY.png)
+
+	[16310.531091] usb 1-4: new high-speed USB device number 11 using xhci_hcd
+	[16310.563123] usb 1-4: New USB device found, idVendor=2c7c, idProduct=0125, bcdDevice= 3.18
+	[16310.563125] usb 1-4: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+	[16310.563126] usb 1-4: Product: Android
+	[16310.563127] usb 1-4: Manufacturer: Android
+
 
 2.确认是否注网成功
 
@@ -33,7 +39,22 @@ USB 16.04 及以后的版本，内核都支持quectel的模组，许多Quectel�
 
 如在Ubuntu 20.04.1 LTS中，内核驱动的option.c 中支持的模组包括
 
-![QQ截图20201001142934.png](https://i.loli.net/2020/10/01/EuHqxMQAXJpnmFK.png)
+	static const struct usb_device_id option_ids[] = { 
+	#if 1 //Added by Quectel 
+	 
+	{ USB_DEVICE(0x2C7C, 0x0125) }, /* Quectel EC20 R2.0/EC20 R2.1/EC25/EG25-G/EM05 */ 
+	 
+	{ USB_DEVICE(0x2C7C, 0x0121) }, /* Quectel EC21/EG21-G */ 
+	 
+	{ USB_DEVICE(0x2C7C, 0x0191) }, /* Quectel EG91 */ 
+	 
+	{ USB_DEVICE(0x2C7C, 0x0195) }, /* Quectel EG95 */ 
+	 
+	{ USB_DEVICE(0x2C7C, 0x0306) }, /* Quectel EG06/EP06/EM06 */ 
+	{ USB_DEVICE(0x2C7C, 0x0512) }, /* Quectel EG12/EM12/EG18 */ 
+	{ USB_DEVICE(0x2C7C, 0x0296) }, /* Quectel BG96 */ 
+	{ USB_DEVICE(0x2C7C, 0x0700) }, /* Quectel BG95/BG77/
+
 
 或者将Quectel模组的VID、PID信息临时写入option驱动
 
@@ -96,9 +117,6 @@ quectel-ppp-kill 用来挂断拨号的，pppd必须被正常的挂断，否则�
 
 Ubuntu内核自带qmi_wwan
 
-![qmi.png](https://i.loli.net/2020/10/01/LfkJCeqY4zbGOBZ.png)
-
-![qmi2.png](https://i.loli.net/2020/10/01/gBFRKJTpn24Yb5e.png)
 
 使用Quectel提供的Quectel\_QConnectManager\_Linux,编译得到quectel-CM, 在quectel-CM源码中存在default.script
 

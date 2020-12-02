@@ -219,9 +219,11 @@ gcc -o udevhotplug udev-hotplugin.c -ludev
 </details>
 这样插入EC25模组后，会自动生成链接，即使ttyUSB*已经出错了。用户应用程序可以适用/dev/EC25.AT、/dev/EC25.MODEM、/dev/EC25.NMEA
 
-![udevEC25.png](https://i.loli.net/2020/09/30/F2sS8AgOlG4XZaD.png)
 
-
+	ls /dev/EC25* -l
+	/dev/EC25.AT -> ttyUSB2
+	/dev/EC25.Modem -> ttyUSB3
+	/dev/EC25.NEMA -> ttyUSB1
 
 ----------
 
