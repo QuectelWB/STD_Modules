@@ -34,6 +34,8 @@ pppd 依赖于libcap.
 
 PPP support (CONFIG_PPP), the asynchronous line discipline (CONFIG_PPP_ASYNC), the driver for your serial port device and/or the PPP over Ethernet (PPPoE) protocol driver (CONGIG_PPPOE) must be compiled into the kernel or loaded as kernel modules. Udev doesn't load the ppp_generic and pppoe modules automatically, they must be mentioned in the /etc/sysconfig/modules file. 
 
+移植参考
+[ppp移植](http://www.linuxfromscratch.org/blfs/view/6.3/basicnet/ppp.html)
 
 wvdial
 -----
