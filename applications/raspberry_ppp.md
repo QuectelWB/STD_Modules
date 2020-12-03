@@ -23,10 +23,10 @@ follow the [http://www.linuxfromscratch.org/blfs/view/6.3/basicnet/ppp.html](htt
 
 下载pppd源码
 	
+	https://ppp.samba.org/download.html
 	http://samba.org/ftp/ppp/ppp-2.4.4.tar.gz
 
 pppd 依赖于libcap.
-
 
 	libpcap-0.9.6 ---> do PPP filtering
 	Linux-PAM-0.99.10.0 ---> authenticate incoming calls using PAM

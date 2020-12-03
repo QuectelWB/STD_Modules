@@ -43,8 +43,8 @@ KernelVersion >= 3.4 |
 GobiNet
 
 </td><td>libqmi(Ubuntu)
-uqmi(openWRT)
-quectel-CM
+uqmi(openWRT)<br>
+quectel-CM(recommended way)<br>
 AT$QCRMCALL=1,1
 </td><td>IP Frame</td></tr>
 <tr><td>ecm
@@ -91,7 +91,13 @@ QMI will match interface 4 with itself.
 
 ### GobiNet ###
 
+GobiNet 和 qmi_wwan(qmi_wwan_q) 之间二选一即可。GobiNet驱动在驱动加载的时候就会拉DTR。
+
 If you want to dial with the AT instruction, you need to set the qcrmcall_mode in the driver to 1.
+
+如果需要用AT指令拨号，修改GobiNet源码里的 qcrmcall_mode 为1 .
+
+AT 指令拨号不支持 QMAP。如果驱动开启QMAP功能，模组则无法使用AT指令拨号。 
 
 <table><tr><td bgcolor=yellow> Please  ask Quectel for the latest QMI and GobiNet drivers. </td></tr></table>
 
@@ -102,6 +108,7 @@ Mailto: support@quectel.com
 
 QMAPs full name is QUALCOMM Multiplexing and Aggregation Protocol. 
 
+QMAP 全程是 Qualcomm 聚合和复用协议。
 
 When using GobiNet or QMI_WWAN, only one Physical Network Card can be created by default, so only one PDN data call 
 can be set up. However, multiple virtual Network Cards can be created by using IP multiplexing protocol over one Physical 
