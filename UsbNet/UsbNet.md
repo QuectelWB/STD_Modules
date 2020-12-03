@@ -48,13 +48,13 @@ quectel-CM
 AT$QCRMCALL=1,1
 </td><td>IP Frame</td></tr>
 <tr><td>ecm
-a+qcfg="usbnet",1
+a+qcfg="usbnet",1 <br>
 automotive OpenLinux
 </td><td>CONFIG_USB_NET_CDCETHER</td><td>autoconnect</td><td>Ethernet Frame</td></tr>
-<tr><td>mbim
-at+qcfg="usbnet",2
+<tr><td>mbim <br>
+at+qcfg="usbnet",2 <br>
 Win10 Notebooks,EM/E Serials
-</td><td>CONFIG_USB_NET_CDC_MBIM
+</td><td>CONFIG_USB_NET_CDC_MBIM <br>
 KernelVersion >= 3.9
 </td><td>mbim protocol
 libmbim(Ubuntu)

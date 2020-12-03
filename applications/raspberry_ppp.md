@@ -35,6 +35,13 @@ pppd 依赖于libcap.
 PPP support (CONFIG_PPP), the asynchronous line discipline (CONFIG_PPP_ASYNC), the driver for your serial port device and/or the PPP over Ethernet (PPPoE) protocol driver (CONGIG_PPPOE) must be compiled into the kernel or loaded as kernel modules. Udev doesn't load the ppp_generic and pppoe modules automatically, they must be mentioned in the /etc/sysconfig/modules file. 
 
 
+wvdial
+-----
+
+wvdial是一个简单好用的Linux 下的拨号工具。它完全不需要chat scripts，也不用你去编辑pap-secrets 和chap-secrets，它完全能够自动发现你modem ，并自动选择合适的初始化串。利用wvdial 和ppp 可以实现linux 下的轻松上网。在整个过程中wvdial 的作用是拨号并等待提示，并根据提示输入相应的用户名和密码等认证信息。
+
+
+
 
 :)
 
