@@ -61,5 +61,9 @@
   - [catch_logs](FAQs/09.log)
   - [PowerManagement](FAQs/10.PM)
 
+* MISC
+
+  - [LBS](/MISC/LBS)
+
 - Abouts
 	- [WhoAmI](inits/about.md)
