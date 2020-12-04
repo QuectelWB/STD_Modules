@@ -34,14 +34,19 @@ prerequisites
 -----------
 
 - 注网状态检查
+<br>
 确认模组注册上4G或者5G网络。用AT指令检查
 
-AT+COPS?
-AT+QENG=servingcell
+/[]AT+COPS?
+[]AT+QENG=servingcell
+
 - dhcp客户端程序
+<br>
 PC或者服务器系统上自带dhclient，
 嵌入式平台上使用udhcpc，busybox工具之一。
+
 - 网卡驱动
+<br>
 CM用于RMNET网卡（AT+QCFG=usbnet，0），对应驱动qmi_wwan_q或者GobiNet；
 以及MBIM网卡（AT+QCFG=usbnet，2），对应驱动cdc_mbim。
 
@@ -50,8 +55,8 @@ Build and Copy to Target Platform
 
 如果在当前系统上使用直接make即可，对嵌入式平台，将源码交叉编译。最终生成目标文件
 
-- quectel-CM: 目标可执行文件
-- qmi-proxy 和 mbim-proxy : 代理工具，用于多路拨号。如果不需要多路拨号，不用理会。
+- **quectel-CM**: 目标可执行文件
+- **qmi-proxy** 和 **mbim-proxy** : 代理工具，用于多路拨号。如果不需要多路拨号，不用理会。
 
 注意事项:<br>
 	Gcc 版本较低（低于4.6），CFLAGS添加-lrt。
@@ -60,11 +65,13 @@ Build and Copy to Target Platform
 
 注意事项:<br>
 	
-	default.script 是udhcpc 调用到的重要脚本。该脚本中不能存在不可见字符，譬如在DOS系统（Win10）打开过，每行结尾会是\r\n，这会导致Unix系统中该脚本无法正常执行。<br>
-	可以在目标平台上执行dos2unix default.script，其中dos2unix 是一个将DOS系统字符转换称Unix系统字符的小工具。也可以用vim打开default.script, 手动将default.script每行结尾的^M删除。
+	default.script 是udhcpc 调用到的重要脚本。
+	default脚本中不能存在不可见字符，譬如在DOS系统（Win10）打开过，每行结尾会是\r\n，会导致Unix系统中无法正常执行
+	在目标平台上执行dos2unix default.script
+	其中dos2unix 是一个将DOS系统字符转换称Unix系统字符的小工具。
+	也可以用vim打开default.script, 手动将default.script每行结尾的^M删除。
 	default.script 有执行权限。chmod +x default.script.
-	default.script 的默认位置，一般是/etc/udhcpc/或者/usr/share/udhcpc/。执行udhcpc help 和busybox udhcpc help 可以检查。
-
+	default.script 的默认位置，一般是/etc/udhcpc/或者/usr/share/udhcpc/
 	CM拨号默认使用的是busybox udhcpc （详情见CM源码目录中udhcpc.c）。对嵌入式系统，udhcpc 在编译busybox或buildroot的时候需要勾选，否则需要额外移植。	
 	如使用Dhclient需要打开。#define USE_DHCLIENT。
 
