@@ -56,7 +56,7 @@
   - [driver_not_match](FAQs/04.driver_not_match)
   - [UsefullShell](FAQs/05.usefull_shells)
   - [UbuntuIssuses](FAQs/06.Ubuntu.issuses)
-  - [UsbSysfs](FAQs/07.usbsysfs)
+  - [Usb](FAQs/07.usb)
   - [Usbnet_warnings](FAQs/08.kevent_may_have_been_dropped)
   - [catch_logs](FAQs/09.log)
   - [PowerManagement](FAQs/10.PM)
