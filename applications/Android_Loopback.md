@@ -10,6 +10,9 @@ Android Loopback 网速测试
 - Android RIL库打开loopback
 - 工具iperf2 mpstat等
 
+[busybox-armv8l](https://busybox.net/downloads/binaries/1.31.0-defconfig-multiarch-musl/busybox-armv8l)
+[iperf](https://sourceforge.net/projects/iperf2/files/)
+
 
 ### 模组写loopback
 
@@ -81,26 +84,9 @@ echo performance >  /sys/bus/cpu/devices/cpu1/cpufreq/scaling_governor
 写成[shell脚本](applications/linuxloopback.sh)
 
 check
-
 	
 	kona:/data # cat /sys/bus/cpu/devices/cpu*/cpufreq/scaling_governor
-	performance
-	performance
-	performance
-	performance
-	performance
-	performance
-	performance
-	performance
 	kona:/data # cat /sys/bus/cpu/devices/cpu*/online
-	1
-	1
-	1
-	1
-	1
-	1
-	1
-	1
 	
 
 iperf2 回环测试
