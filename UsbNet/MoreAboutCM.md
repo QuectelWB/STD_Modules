@@ -50,27 +50,30 @@ Build and Copy to Target Platform
 
 如果在当前系统上使用直接make即可，对嵌入式平台，将源码交叉编译。最终生成目标文件
 
-quectel-CM: 目标可执行文件
-qmi-proxy 和 mbim-proxy : 代理工具，用于多路拨号。如果不需要多路拨号，不用理会。
+- quectel-CM: 目标可执行文件
+- qmi-proxy 和 mbim-proxy : 代理工具，用于多路拨号。如果不需要多路拨号，不用理会。
 
-注意事项:
+注意事项:<br>
 	Gcc 版本较低（低于4.6），CFLAGS添加-lrt。
 
 将编译得到的这三个目标文件拷贝到目标平台，如果是嵌入式平台，将quectel-CM源码里的default.script 也拷贝到目标平台。
 
-注意事项:
-	default.script 是udhcpc 调用到的重要脚本。该脚本中不能存在不可见字符，譬如在DOS系统（Win10）打开过，每行结尾会是\r\n，这会导致Unix系统中该脚本无法正常执行。
+注意事项:<br>
+	
+	default.script 是udhcpc 调用到的重要脚本。该脚本中不能存在不可见字符，譬如在DOS系统（Win10）打开过，每行结尾会是\r\n，这会导致Unix系统中该脚本无法正常执行。<br>
 	可以在目标平台上执行dos2unix default.script，其中dos2unix 是一个将DOS系统字符转换称Unix系统字符的小工具。也可以用vim打开default.script, 手动将default.script每行结尾的^M删除。
 	default.script 有执行权限。chmod +x default.script.
 	default.script 的默认位置，一般是/etc/udhcpc/或者/usr/share/udhcpc/。执行udhcpc help 和busybox udhcpc help 可以检查。
-CM拨号默认使用的是busybox udhcpc （详情见CM源码目录中udhcpc.c）。对嵌入式系统，udhcpc 在编译busybox或buildroot的时候需要勾选，否则需要额外移植。	
-如使用Dhclient需要打开。#define USE_DHCLIENT。
+
+	CM拨号默认使用的是busybox udhcpc （详情见CM源码目录中udhcpc.c）。对嵌入式系统，udhcpc 在编译busybox或buildroot的时候需要勾选，否则需要额外移植。	
+	如使用Dhclient需要打开。#define USE_DHCLIENT。
 
 
 Run CM 
 -----
 
 CM支持多路拨号、保存log、多模组、指定APN信息等各类要求的拨号。
+	
 
 	root@m:/home/m/quectel-CM# ./quectel-CM --help
 	Quectel_QConnectManager_Linux_V1.6.0.16
