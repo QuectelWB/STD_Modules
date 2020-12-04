@@ -72,25 +72,25 @@ Run CM
 
 CM支持多路拨号、保存log、多模组、指定APN信息等各类要求的拨号。
 
-root@m:/home/m/quectel-CM# ./quectel-CM --help
-Quectel_QConnectManager_Linux_V1.6.0.16
-Usage: ./quectel-CM [options]
--s [apn [user password auth]]                                          Set apn/user/password/auth
--p pincode                                                 Verify sim card pin if sim card is locked
--f logfilename                                             Save log message of this program to file
--u usbmonlog filename                                     Save usbmon log of this program to file
--i interface                                           Specify network interface(default auto-detect)
--4                                                                               IPv4 protocol
--6                                                                               IPv6 protocol
--m muxID                                       Specify muxid when set multi-pdn data connection.
--n channelID                       Specify channelID when set multi-pdn data connection(default 1).
--k channelID                              Send SIGINT to quectel-CM which multi-pdn is channelID.
--r                                             Detach and attach kernel driver before open device.
--b                                              enable network interface bridge function(default 0).
-[Examples]
-Example 1: ./quectel-CM
-Example 2: ./quectel-CM -s 3gnet
-Example 3: ./quectel-CM -s 3gnet carl 1234 0 -p 1234 -f gobinet_log.txt
+	root@m:/home/m/quectel-CM# ./quectel-CM --help
+	Quectel_QConnectManager_Linux_V1.6.0.16
+	Usage: ./quectel-CM [options]
+	-s [apn [user password auth]]                                          Set apn/user/password/auth
+	-p pincode                                                 Verify sim card pin if sim card is locked
+	-f logfilename                                             Save log message of this program to file
+	-u usbmonlog filename                                     Save usbmon log of this program to file
+	-i interface                                           Specify network interface(default auto-detect)
+	-4                                                                               IPv4 protocol
+	-6                                                                               IPv6 protocol
+	-m muxID                                       Specify muxid when set multi-pdn data connection.
+	-n channelID                       Specify channelID when set multi-pdn data connection(default 1).
+	-k channelID                              Send SIGINT to quectel-CM which multi-pdn is channelID.
+	-r                                             Detach and attach kernel driver before open device.
+	-b                                              enable network interface bridge function(default 0).
+	[Examples]
+	Example 1: ./quectel-CM
+	Example 2: ./quectel-CM -s 3gnet
+	Example 3: ./quectel-CM -s 3gnet carl 1234 0 -p 1234 -f gobinet_log.txt
 
 以下的实例DHCP客户端为busybox udhcpc。
 
