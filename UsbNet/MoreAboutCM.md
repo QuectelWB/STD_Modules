@@ -93,24 +93,26 @@ Example 2: ./quectel-CM -s 3gnet
 Example 3: ./quectel-CM -s 3gnet carl 1234 0 -p 1234 -f gobinet_log.txt
 
 以下的实例DHCP客户端为busybox udhcpc。
-1.	QMI Driver
+
+### QMI Driver
+
 通过AT指令将模组的USB网卡类型配置成MBIM
-
-AT+QCFG=usbnet，0
-
+	
+	AT+QCFG=usbnet，0
+	
 重启模组后，确认
-Debugfs
-
-root@m:/home/m/quectel-CM# lsusb -t
-/:  Bus 02.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/4p, 5000M
-/:  Bus 01.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/11p, 480M
-    |__ Port 4: Dev 12, If 3, Class=Vendor Specific Class, Driver=option, 480M
-    |__ Port 4: Dev 12, If 1, Class=Vendor Specific Class, Driver=option, 480M
-    |__ Port 4: Dev 12, If 4, Class=Vendor Specific Class, Driver=qmi_wwan_q, 480M
-    |__ Port 4: Dev 12, If 2, Class=Vendor Specific Class, Driver=option, 480M
-|__ Port 4: Dev 12, If 0, Class=Vendor Specific Class, Driver=option, 480M
 
 
+	root@m:/home/m/quectel-CM# lsusb -t
+	/:  Bus 02.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/4p, 5000M
+	/:  Bus 01.Port 1: Dev 1, Class=root_hub, Driver=xhci_hcd/11p, 480M
+	    |__ Port 4: Dev 12, If 3, Class=Vendor Specific Class, Driver=option, 480M
+	    |__ Port 4: Dev 12, If 1, Class=Vendor Specific Class, Driver=option, 480M
+	    |__ Port 4: Dev 12, If 4, Class=Vendor Specific Class, Driver=qmi_wwan_q, 480M
+	    |__ Port 4: Dev 12, If 2, Class=Vendor Specific Class, Driver=option, 480M
+	|__ Port 4: Dev 12, If 0, Class=Vendor Specific Class, Driver=option, 480M
+	
+运行quectel-CM 开始拨号
 
 	[11-30_17:26:14:656] Quectel_QConnectManager_Linux_V1.6.0.16
 	[qmidevice_detect]/sys/bus/usb/devices/1-4/idProduct
@@ -270,4 +272,5 @@ root@m:/home/m/quectel-CM# lsusb -t
 	[11-30_16:56:42:922] system(ip -4 address add 10.140.255.29/30 dev wwan0)=0
 	[11-30_16:56:42:926] system(ip -4 route add default via 10.140.255.30 dev wwan0)=0
 	[11-30_16:56:42:929] system(ip -4 link set dev wwan0 mtu 1500)=0
+
 
