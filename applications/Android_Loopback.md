@@ -1,6 +1,8 @@
 Android Loopback 网速测试
 ========
 
+![](Linuxloopback.png)
+
 准备工作
 -----
 
