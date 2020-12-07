@@ -281,6 +281,11 @@ Contents can be:
 	
 	SUBSYSTEM=="net", ACTION=="add", DRIVERS=="qmi_wwan_q",  ATTR{type}=="1", KERNEL=="rmnet_usb*", NAME="usb0" 
 
+当然，你可以h直接用命令行执行
+
+	
+	ip link set rmnet_usb0 name eth0 //重命名为usb0
+
 ## 参考文档
 
 http://blog.chinaunix.net/uid-20506382-id-1939795.html
