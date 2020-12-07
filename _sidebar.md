@@ -60,6 +60,8 @@
   - [Usbnet_warnings](FAQs/08.kevent_may_have_been_dropped)
   - [catch_logs](FAQs/09.log)
   - [PowerManagement](FAQs/10.PM)
+  - [speedtest](FAQs/11.speedtest)
+
 
 * MISC
 
