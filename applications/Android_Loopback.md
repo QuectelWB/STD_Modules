@@ -82,7 +82,7 @@ echo performance >  /sys/bus/cpu/devices/cpu3/cpufreq/scaling_governor
 echo performance >  /sys/bus/cpu/devices/cpu2/cpufreq/scaling_governor
 echo performance >  /sys/bus/cpu/devices/cpu1/cpufreq/scaling_governor
 
-写成[shell脚本](applications/linuxloopback.sh)
+写成[shell脚本](linuxloopback.sh)
 check
 	
 	kona:/data # cat /sys/bus/cpu/devices/cpu*/cpufreq/scaling_governor
