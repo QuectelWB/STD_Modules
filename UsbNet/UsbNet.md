@@ -187,7 +187,8 @@ the dmesg log
 
 ## ECM #
 
-CDC ECM driver is the ECM universal driver of module adaptation standard, no additional code modification, directly configure the compilation item.CDC ECM driver related configuration items:
+
+CDC ECM driver 是ECM接口的通用的标准，不需要对kernel源码做任何修改。只需要配置Kernel
 
 	CONFIG_USB_USBNET=y 
 	CONFIG_NETDEVICES=y 
@@ -196,6 +197,24 @@ CDC ECM driver is the ECM universal driver of module adaptation standard, no add
 kernel\drivers\net\usb\Makefile
 
 	obj-$(CONFIG_USB_NET_CDCETHER)	+= cdc_ether.o
+
+
+ECM接口在Quectel的基于高通平台的所有标准模组上，特点是自动拨号，不需要任何工具和执行AT指令。如果是Host是一台Ubuntu PC，在网卡配置成ECM的情况下，可能不需要任何操作，Ubuntu PC直接就可以联网了。
+<br>
+如果一部分不能联网，可能需要的步骤是：
+
+- udhcpc -i usbX
+- 添加192.168.X.1 为gateway和DNS
+
+当然，前提是模组必须能注网成功，模块本身可以联网（用debug口进去可以ping公网，或者AT+QPING可以正常返回。）
+
+
+对基于ASR和海思平台的配置成ECM接口的模组，模组不会自动拨号，需要手动用AT指令拨号。
+
+海思平台自己的AT指令 AT+NIDSDUP=1,1
+<br>
+Quectel的AT拨号执行AT+QNETDEVCTL=1,1,1
+
 
 ----------
 
@@ -238,6 +257,13 @@ lsusb -t
 ----------
 
 
+## RNDIS #
+
+我是非常不推荐使用RNDIS的。
+
+对高通模组，主要是EC2X模组的RNDIS网卡会默认使用usb接口描述符0和1，这和其他的接口默认使用接口4不同。这点在上一章USB Serial中有介绍。
+
+对5G模组如RM500Q的RNDIS暂未测试通过。如有网络需求，建议用ECM替代。
 
 
 
