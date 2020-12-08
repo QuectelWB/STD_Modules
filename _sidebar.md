@@ -61,6 +61,7 @@
   - [catch_logs](FAQs/09.log)
   - [PowerManagement](FAQs/10.PM)
   - [speedtest](FAQs/11.speedtest)
+  - [网卡中断](FAQs/12.interrupts)
 
 
 * MISC
