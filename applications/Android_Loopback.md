@@ -94,13 +94,9 @@ echo performance >  /sys/bus/cpu/devices/cpu3/cpufreq/scaling_governor
 echo performance >  /sys/bus/cpu/devices/cpu2/cpufreq/scaling_governor
 echo performance >  /sys/bus/cpu/devices/cpu1/cpufreq/scaling_governor
 
-写成[shell脚本](linuxloopback.sh)
+写成
 
-[script](linuxloopback.sh)
-[script](applications/linuxloopback.sh)
-[script](/applications/linuxloopback.sh)
-[script](\applications\linuxloopback.sh)
-[script](applications\linuxloopback.sh)
+[script](applications/linuxloopback.sh.md)
 
 
 
