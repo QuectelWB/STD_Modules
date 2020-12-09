@@ -23,7 +23,7 @@ Android Loopback 网速测试
 
 如果模块已经和AP做成PCB，无法让模块接到PC上，可以用网络转发方式，需要在AP上运行QLog，QLog内嵌tty2tcp，通过QLog -s 9000，将DM port转发到AP的9000端口上。和AP处于同一局域网的一台Windows PC上运行QPST，将loopback_config.txt 写入模组。X55_IPQ8074_rmnet网卡_loopback功能使用说明_20200707_V4.pdf 中有详细介绍。
 
-
+![](QPST_Add_Remote_Port.png)
 
 QPST工具及其使用咨询QuectelFAE。
 
