@@ -27,6 +27,14 @@ Android Loopback 网速测试
 
 QPST工具及其使用咨询QuectelFAE。
 
+确认方法
+
+	echo -ne "AT+QNVFR=\"/nv/item_files/modem/data/3gpp/ps/loopback_config.txt\"\r\n" > /dev/ttyUSB2
+	kona:/data #
+	kona:/data # logcat -b radio -v time | grep -rnHi "QNVFR"
+	(standard input):1689:11-25 15:05:22.139 D/use-Rlog/RLOG-RIL ATC( 1006): AT< +QNVFR: 4C4F4F504241434B5F454E41424C45443A313B0D0A4C325F4C4F4F504241434B5F454E41424C45443A303B0D0A535953204D4F44453A393B0D0A5245505F464143544F523A31343B
+
+
 ### Android Loopback
 
 ril库在启动过程中会调用ql-ril.conf. ql-ril.conf 的位置一般位于 /system/etc/或者/vendor/etc/, 或者根目录下的etc/（根目录下的etc/是软连接）。或者通过rillog确定ql-ril.conf的位置。
