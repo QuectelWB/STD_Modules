@@ -70,7 +70,7 @@
   - [DHCP](/MISC/DHCP)
   - [GPSD](/MISC/gpsd)
   - [IPV6](/MISC/IPV6)
-
+  - [OpenWrt_IPV6](/MISC/OpenWrt_IPv6)
 
 - Abouts
 	- [WhoAmI](inits/about.md)

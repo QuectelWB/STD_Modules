@@ -51,6 +51,38 @@ IPV6 地址由2部分组成
 
 	根据路由通告报文RA（Router Advertisement）包含的prefix前缀信息自动配置IPv6地址，组成方式是Prefix + (EUI64 or 随机)。Stateless也可以称为SLAAC（Stateless address auto configuration）。RA获取到是Prefix，不能完整的128位IPV6地址。
 	
-- 有状态
+- 有状态, 通过DHCPv6方式获得IPv6地址
 
+	有状态DHCPv6（Stateful DHCPv6）：IPv6地址、其他参数（如DNS）均通过DHCPv6获取
+	无状态DHCPv6（Stateless DHCPv6）：IPv6地址依然通过路由通告RA方式生成，其他参数（如DNS）通过DHCPv6获取
 	
+
+有状态、无状态仅针对于IPv6地址分配方式，并不包含其他参数（如DNS）
+
+
+
+Quectel
+------
+
+
+- QMI/MBIM方式拨号，可以直接通过QMI/MBIM消息获取到IPV6地址和DNS信息的，不需要的路由请求(RS)和公告(RA)，以及DHCPv6
+- PPP拨号的话，可以通过PPP拿到IPV6地址，但通过PPP拿不到DNS信息
+- 模块支持RS/RA
+
+	ifconfig net up，Linux Kernel自动发送路由请求(RS)，收到路由公告地RA后，根据RA里面的前缀Prefix，生成Global的IPV6地址。
+	Linux内核无法处理RA里面的DNS信息(需要上层应用写到DNS配置文件里，但不同的Linux系统配置方法多不一样)。
+	PPP拨号的时候，可以自己写个小程序，发送RS给模块，然后从RA中提起DNS信息。
+
+- 模块不支持DHCPv6
+
+
+NDP（Neighbor Discovery Protocol）
+------
+
+
+IPV6 域名的解析
+-------
+
+
+
+
