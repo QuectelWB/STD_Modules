@@ -67,6 +67,8 @@
 * MISC
 
   - [LBS](/MISC/LBS)
+  - [DHCP](/MISC/DHCP)
+  - [GPSD](/MISC/gpsd)
 
 - Abouts
 	- [WhoAmI](inits/about.md)

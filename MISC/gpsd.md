@@ -10,13 +10,28 @@ On Debian OS
 
 	sudo apt-get install gpsd gpsd-clients
 	
-假设/dev/ttyUSB1 输出GPS信息
 
 自行编译
 
 	tar -xzf gpsd-3.18.tar.gz
 	cd gpsd-3.18
 	scons && scons check && sudo scons udev-install
+
+
+
+1 install gpsd and gpsd-client. (Ubuntu: apt-get gpsd; apt-get gpsd-client. Or download gpsd and gpsd-client rpm, then install them)
+
+2 configure serial port or usb port , and confirm the port path (for example: /dev/ttyS0); then connect to gps module
+
+3 use command below to test if the serial port can receive data from GPS module.
+
+	stty -F /dev/ttyXXX ispeed 4800 && cat </dev/ttyXX
+
+4 Start gpsd: 
+	
+	gpsd -D 5 -N -n /dev/ttyUSB0
+
+5 Start the xgps or cgps client.
 
 
 
