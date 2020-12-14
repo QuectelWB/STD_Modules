@@ -40,18 +40,18 @@ IPV6 地址由2部分组成
 <br>固定是fe80::(fe80:0000:0000:0000）,后64位根据MAC地址(2E:EC:C4:9D:7C:82)生成的。
 
 
-而 inet6 addr: 2409:8930:421:f2b:cc61:967c:945:fccf/64 Scope:Global 则是一个全局(Global)地址。
+而 inet6 addr: 2409: 8930: 421: f2b: cc61: 967c: 945: fccf/64 Scope:Global 则是一个全局(Global)地址。
 
 全球地址
 -------
 
 全球地址的生成方法
 
-- 无状态
+- **无状态**
 
 	根据路由通告报文RA（Router Advertisement）包含的prefix前缀信息自动配置IPv6地址，组成方式是Prefix + (EUI64 or 随机)。Stateless也可以称为SLAAC（Stateless address auto configuration）。RA获取到是Prefix，不能完整的128位IPV6地址。
 	
-- 有状态, 通过DHCPv6方式获得IPv6地址
+- **有状态**, 通过DHCPv6方式获得IPv6地址
 
 	有状态DHCPv6（Stateful DHCPv6）：IPv6地址、其他参数（如DNS）均通过DHCPv6获取
 	无状态DHCPv6（Stateless DHCPv6）：IPv6地址依然通过路由通告RA方式生成，其他参数（如DNS）通过DHCPv6获取
