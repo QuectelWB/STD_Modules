@@ -16,4 +16,48 @@ LAN，WAN，WAN6是openwrt里一种逻辑上网卡名字，比如路由器通过
 <br>前面讲了系统发送路由请求(RS)/公告(RA)，可以获取到前缀，然后生成wwan0网卡的IPV6地址。
 
 
+Odhcpd
+-----
+
+[odhcpd 源码](https://github.com/openwrt/odhcpd)
+<br>
+[在openwrt中使用odhcpd配置IPv6](https://www.asmodeus.cn/archives/296)
+<br>
+
+直接在OpenWrt上安装<br>
+
+	opkg update
+	opkg install odhcpd
+
+vi /etc/config/dhcp
+
+
+	config dhcp lan
+	    option interface lan
+	    option start 100
+	    option limit 150
+	    option leasetime 12h
+	    option ra hybrid
+	    option dhcpv6 hybrid
+	    option ndp hybrid
+	    option ra_management 1
+	config dhcp wan6
+	    option interface wan
+	    option dhcpv6 hybrid
+	    option ra hybrid
+	    option ndp hybrid
+	    option master 1
+
+
+> 开机启动
+
+vi /etc/rc.local
+
+在 exit 0 前添加以下内容
+
+	/etc/init.d/odhcpd start
+	/etc/init.d/odhcpd enable
+
+
+
 
