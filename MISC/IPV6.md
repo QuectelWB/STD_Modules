@@ -22,7 +22,7 @@ IPV6 地址由2部分组成
 	inet6 addr: fe80::2cec:c4ff:fe9d:7c82/64 Scope:Link
 	UP RUNNING NOARP MTU:1500 Metric:1
 
-<font color=Blue>net6 addr: fe80::2cec:c4ff:fe9d:7c82/64 Scope:Link  </font>
+<font color=Blue>net6 addr: fe80:: 2cec: c4ff: fe9d: 7c82/64 Scope: Link  </font>
 这个地址是本地地址Link-Local Address.<br>
 网卡创建的时候，就会有一个对应的本地IPv6地址
 
@@ -35,9 +35,9 @@ IPV6 地址由2部分组成
 	stable_secret：跟随网络环境的变化而变化，处于固定网络环境时其值将固定
 	random：随机生成
 
-这里的 inet6 addr: <font color=red>fe80::2cec:c4ff:fe9d:7c82/64 Scope:Link </font>
+这里的 inet6 addr: <font color=red>fe80 :: 2cec: c4ff: fe9d: 7c82/64 Scope: Link </font>
 就是根据MAC地址计算得到的
-<br>固定是fe80::(fe80:0000:0000:0000）,后64位根据MAC地址(2E:EC:C4:9D:7C:82)生成的。
+<br>固定是fe80::(fe80:0000:0000:0000）,后64位根据MAC地址( 2E: EC: C4: 9D: 7C: 82 )生成的。
 
 
 而 inet6 addr: 2409: 8930: 421: f2b: cc61: 967c: 945: fccf/64 Scope:Global 则是一个全局(Global)地址。
