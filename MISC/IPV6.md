@@ -84,5 +84,65 @@ IPV6 域名的解析
 -------
 
 
+Quectel ppp for ipv6
+-----
+
+man pppd
+
+	ipv6cp-accept-local
+              With this option, pppd will accept the peer's idea of our local IPv6 interface identifier, even if  the
+              local IPv6 interface identifier was specified in an option.
+
+       ipv6cp-accept-remote
+              With  this  option, pppd will accept the peer's idea of its (remote) IPv6 interface identifier, even if
+              the remote IPv6 interface identifier was specified in an option.
+
+       ipv6cp-max-configure n
+              Set the maximum number of IPv6CP configure-request transmissions to n (default 10).
+
+       ipv6cp-max-failure n
+              Set the maximum number of IPv6CP configure-NAKs returned before starting to send configure-Rejects  in
+              stead to n (default 10).
+
+       ipv6cp-max-terminate n
+              Set the maximum number of IPv6CP terminate-request transmissions to n (default 3).
+
+       ipv6cp-restart n
+              Set the IPv6CP restart interval (retransmission timeout) to n seconds (default 3).
+
+       ipx    Enable  the  IPXCP and IPX protocols.  This option is presently only supported under Linux, and only if
+              your kernel has been configured to include IPX support.
+
+	+ipv6  Enable the IPv6CP and IPv6 protocols.
+
+
+脚本中的AT+CGDCONT配置pdp支持ipv4v6
+
+通过Quectel提供的ppp拨号脚本，获得ipv6 addr、gateway、DNS，需要使用无状态的自动配置和有状态的配置。
+
+
+无状态的自动配置自动完成，获得ipv6地址。但是这个地址无法进行DNS解析，无法访问域名
+
+通过dibbler-client可以配置DNS信息
+
+	apt-get install dibbler-client  -y
+
+
+dibbler-client 的常用命令： 
+- dibbler-client  run      在终端运行 dibbler-client，使用 ctrl+c 停止运行 
+- dibbler-client  satrt     以守护进程的形式运行 dibbler-client 
+- dibbler-client  stop     结束 dibbler-client，和 start 配对使用 
+- dibbler-client  status    查看 dibbler-client 的状态
+
+run或者start之前，修改配置文件
+
+/etc/dibbler/client.conf
+
+	#client.conf
+	iface ppp0
+	{
+		stateless
+		option dns-server
+	}
 
 
