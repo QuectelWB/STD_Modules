@@ -128,22 +128,22 @@ Odhcpd
 
 odhcpd配置一般位于 /etc/config/dhcp 用uci 命令配置
 
-uci set dhcp.lan.ra='relay' 
-uci set dhcp.lan.dhcpv6='disabled' 
-uci set dhcp.lan.ndp='relay' 
-uci set dhcp.wan.ra='relay' 
-uci set dhcp.wan.dhcpv6='disabled' 
-uci set dhcp.wan.ndp='relay' 
-uci set dhcp.wan.ndproxy_routing='0' #不从NDP包探测 并配置路由信息 
-uci set dhcp.wan6=dhcp 
-uci set dhcp.wan6.interface='wan6' 
-uci set dhcp.wan6.ra='relay' 
-uci set dhcp.wan6.dhcpv6='disabled' 
-uci set dhcp.wan6.ndp='relay' 
-uci set dhcp.wan6.ndproxy_routing='0' #不从NDP包探测 并配置路由信息 
-uci set dhcp.wan6.master='1' 
-uci set dhcp.odhcpd=odhcpd 
-uci set dhcp.odhcpd.loglevel='7' #提供打印级别，调试用
+	uci set dhcp.lan.ra='relay' 
+	uci set dhcp.lan.dhcpv6='disabled' 
+	uci set dhcp.lan.ndp='relay' 
+	uci set dhcp.wan.ra='relay' 
+	uci set dhcp.wan.dhcpv6='disabled' 
+	uci set dhcp.wan.ndp='relay' 
+	uci set dhcp.wan.ndproxy_routing='0' #不从NDP包探测 并配置路由信息 
+	uci set dhcp.wan6=dhcp 
+	uci set dhcp.wan6.interface='wan6' 
+	uci set dhcp.wan6.ra='relay' 
+	uci set dhcp.wan6.dhcpv6='disabled' 
+	uci set dhcp.wan6.ndp='relay' 
+	uci set dhcp.wan6.ndproxy_routing='0' #不从NDP包探测 并配置路由信息 
+	uci set dhcp.wan6.master='1' 
+	uci set dhcp.odhcpd=odhcpd 
+	uci set dhcp.odhcpd.loglevel='7' #提供打印级别，调试用
 
 
 
@@ -155,6 +155,110 @@ vi /etc/rc.local
 
 	/etc/init.d/odhcpd start
 	/etc/init.d/odhcpd enable
+
+
+
+odhcpd的配置
+-----
+
+
+<table class="inline table table-striped table-bordered table-condensed">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign"> Name                   </th><th class="col1 leftalign"> Type      </th><th class="col2 leftalign"> Required   </th><th class="col3 leftalign"> Default                       </th><th class="col4 leftalign"> Description                                                                                                       </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"> <code>interface</code>          </td><td class="col1 leftalign"> string    </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>&lt;name of UCI section&gt;</code>     </td><td class="col4 leftalign"> Logical OpenWrt interface.                                                                                        </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign"> <code>ifname</code>             </td><td class="col1 leftalign"> string    </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>&lt;resolved from logical&gt;</code>   </td><td class="col4 leftalign"> Physical network interface.                                                                                       </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign"> <code>networkid</code>          </td><td class="col1 leftalign"> string    </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>&lt;same as ifname&gt;</code>          </td><td class="col4 leftalign"> Alias of <code>ifname</code> for compatibility.                                                                            </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 leftalign"> <code>ignore</code>             </td><td class="col1 leftalign"> boolean   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>0</code>                         </td><td class="col4 leftalign"> do not serve this interface unless overridden by <code>ra</code>, <code>ndp</code>, <code>dhcpv4</code> or <code>dhcpv6</code> options.               </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign"> <code>master</code>             </td><td class="col1 leftalign"> boolean   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>0</code>                         </td><td class="col4 leftalign"> is a master interface for relaying                                                                                </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign"> <code>ra</code>                 </td><td class="col1 leftalign"> string    </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>disabled</code>                  </td><td class="col4 leftalign"> Router Advert service. Set to <code>disabled</code>, <code>server</code>, <code>relay</code> or <code>hybrid</code>.                                  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign"> <code>dhcpv6</code>             </td><td class="col1 leftalign"> string    </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>disabled</code>                  </td><td class="col4 leftalign"> DHCPv6 service. Set to <code>disabled</code>, <code>server</code>, <code>relay</code> or <code>hybrid</code>.                                         </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 leftalign"> <code>dhcpv4</code>             </td><td class="col1 leftalign"> string    </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>disabled</code>                  </td><td class="col4 leftalign"> DHCPv4 service. Set to <code>disabled</code> or <code>server</code>.                                                                </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 leftalign"> <code>ndp</code>                </td><td class="col1 leftalign"> string    </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>disabled</code>                  </td><td class="col4 leftalign"> Neighbor Discovery Proxy. Set to <code>disabled</code>, <code>relay</code> or <code>hybrid</code>                                            </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 leftalign"> <code>dynamicdhcp</code>        </td><td class="col1 leftalign"> boolean   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>1</code>                         </td><td class="col4 leftalign"> Leases for DHCPv4 and DHCPv6 are created dynamically.                                                             </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 leftalign"> <code>dns</code>                </td><td class="col1 leftalign"> list      </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>&lt;local address&gt;</code>           </td><td class="col4 leftalign"> <abbr title="Domain Name System">DNS</abbr> servers to announce on the network. <abbr title="Internet Protocol version 4">IPv4</abbr> and <abbr title="Internet Protocol version 6">IPv6</abbr> addresses are accepted.                                     </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 leftalign"> <code>domain</code>             </td><td class="col1 leftalign"> list      </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>&lt;local search domain&gt;</code>     </td><td class="col4 leftalign"> Search domains to announce on the network.                                                                        </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 leftalign"> <code>leasetime</code>          </td><td class="col1 leftalign"> string    </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>12h</code>                       </td><td class="col4 leftalign"> DHCPv4 address leasetime                                                                                          </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 leftalign"> <code>start</code>              </td><td class="col1 leftalign"> integer   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>100</code>                       </td><td class="col4 leftalign"> Starting address of the DHCPv4 pool.                                                                              </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 leftalign"> <code>limit</code>              </td><td class="col1 leftalign"> integer   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>150</code>                       </td><td class="col4 leftalign"> Number of addresses in the DHCPv4 pool.                                                                           </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 leftalign"> <code>ra_default</code>         </td><td class="col1 leftalign"> integer   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>0</code>                         </td><td class="col4 leftalign"> Override default route- Set to  <code>0</code> (default), <code>1</code> (ignore, no public address) or <code>2</code> (ignore all).         </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 leftalign"> <code>ra_management</code>      </td><td class="col1 leftalign"> integer   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>1</code>                         </td><td class="col4 leftalign"> RA management mode. See the RA Management Modes table below.                                                    </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 leftalign"> <code>ra_offlink</code>         </td><td class="col1 leftalign"> boolean   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>0</code>                         </td><td class="col4 leftalign"> Announce prefixes off-link                                                                                        </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 leftalign"> <code>ra_preference</code>      </td><td class="col1 leftalign"> string    </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>medium</code>                    </td><td class="col4 leftalign"> Route preference <code>medium</code>, <code>high</code> or <code>low</code>                                                                  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 leftalign"> <code>ra_maxinterval</code>     </td><td class="col1 leftalign"> integer   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>600</code>                       </td><td class="col4 leftalign"> Maximum time allowed between sending unsolicited Router Advertisements (RA).                                      </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 leftalign"> <code>ra_mininterval</code>     </td><td class="col1 leftalign"> integer   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>200</code>                       </td><td class="col4 leftalign"> Minimum time allowed between sending unsolicited Router Advertisements (RA).                                      </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 leftalign"> <code>ra_lifetime</code>        </td><td class="col1 leftalign"> integer   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>1800</code>                      </td><td class="col4 leftalign"> Router Lifetime published in Router Advertisement (RA) messages.                                                  </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 leftalign"> <code>ra_useleasetime</code>    </td><td class="col1 leftalign"> boolean   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>0</code>                         </td><td class="col4 leftalign"> If set, the configured DHCPv4 <code>leasetime</code> is also used as limit and preferred lifetime of the <abbr title="Internet Protocol version 6">IPv6</abbr> prefix.      </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 leftalign"> <code>ra_reachabletime</code>   </td><td class="col1 leftalign"> integer   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>0</code>                         </td><td class="col4 leftalign"> Reachable Time in milliseconds to be published in Router Advertisement (RA) messages&#039;.                            </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 leftalign"> <code>ra_retranstime</code>     </td><td class="col1 leftalign"> integer   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>0</code>                         </td><td class="col4 leftalign"> Retransmit Time in milliseconds to be published in Router Advertisment (RA) messages.                             </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 leftalign"> <code>ra_hoplimit</code>        </td><td class="col1 leftalign"> integer   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>0</code>                         </td><td class="col4 leftalign"> The maximum hops to be published in Router Advertisement (RA) messages.                                           </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 leftalign"> <code>ra_mtu</code>             </td><td class="col1 leftalign"> integer   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>0</code>                         </td><td class="col4 leftalign"> The <abbr title="Maximum Transmission Unit">MTU</abbr> to be published in Router Advertisement (RA) messages.                                                    </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 leftalign"> <code>ndproxy_routing</code>    </td><td class="col1 leftalign"> boolean   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>1</code>                         </td><td class="col4 leftalign"> Learn routes from ND.P                                                                                            </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0 leftalign"> <code>ndproxy_slave</code>      </td><td class="col1 leftalign"> boolean   </td><td class="col2 leftalign">            </td><td class="col3 leftalign"> <code>0</code>                         </td><td class="col4 leftalign"> NDProxy external slave.                                                                                           </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0 leftalign"> <code>ndproxy_static</code>     </td><td class="col1 leftalign"> list      </td><td class="col2 leftalign">            </td><td class="col3 leftalign">                               </td><td class="col4 leftalign"> Static NDProxy prefixes.                                                                                          </td>
+	</tr>
+</table>
 
 
 
