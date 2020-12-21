@@ -44,7 +44,7 @@ GobiNet
 
 </td><td>libqmi(Ubuntu)
 uqmi(openWRT)<br>
-quectel-CM(recommended way)<br>
+quectel-CM(推荐方式)<br>
 AT$QCRMCALL=1,1
 </td><td>IP Frame</td></tr>
 <tr><td>ecm
@@ -58,14 +58,15 @@ Win10 Notebooks,EM/E Serials
 KernelVersion >= 3.9
 </td><td>mbim protocol
 libmbim(Ubuntu)
-quectel-M</td><td>MBIM Frame</td></tr>
-<tr><td>rndis
+quectel-CM</td><td>MBIM Frame</td></tr>
+<tr><td>rndis<br>
 at+qcfg="usbnet",3
 </td><td>CONFIG_USB_NET_RNDIS_HOST</td><td>autoconnect</td><td>Ethernet Frame</td></tr>
 </table>
 
 Other Net type such as NCM/ACM interface works much same with ECM/RNDIS.
 
+其他网络接口譬如NCM和ECM、RNDIS差不多。
 
 obj-$(CONFIG_USB_NET_CDC_NCM)	+= cdc_ncm.o
 
