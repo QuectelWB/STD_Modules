@@ -6,5 +6,6 @@
 
 
 [`Official Website`](<https://www.quectel.com>)
-[`Quectel Forums`](<https://Forums.quectel.com>)
+[`Quectel Forums Oversea`](<https://Forums.quectel.com>)
+['移远产品中文论坛'](<https://forumschinese.quectel.com/>)
 [Start](README.md)
