@@ -3,9 +3,11 @@
 EMAIL: 
 
 [wang_biao@126.com]()
+<br>
 [bean.wang@quectel.com]()
+<br>
 [biaoneversurrender@hotmail.com]()
-
+<br>
 Github: [MrVW](https://github.com/MrVW)  
 
 Other related:
