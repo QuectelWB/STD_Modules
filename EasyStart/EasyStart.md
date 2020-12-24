@@ -35,7 +35,7 @@ This chapter is for those who are not familar with LTE network, have never used 
 
 3.USB串口驱动
 
-USB 16.04 及以后的版本，内核都支持quectel的模组，许多Quectel模组的信息已经加进Kernel Upstreaming
+Ubuntu 16.04 及以后的版本，内核支持quectel的模组，许多Quectel模组的信息已经加进Kernel Upstreaming
 
 如在Ubuntu 20.04.1 LTS中，内核驱动的option.c 中支持的模组包括
 
