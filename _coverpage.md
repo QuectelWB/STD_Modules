@@ -1,4 +1,4 @@
-<img width="480px"  src="quectel.svg">
+<img width="480px"  src="QuectelLogo.png">
 
 # QUectel Standard Modules User Guide
 
