@@ -47,7 +47,7 @@ uqmi(openWRT)<br>
 quectel-CM(推荐方式)<br>
 AT$QCRMCALL=1,1
 </td><td>IP Frame</td></tr>
-<tr><td>ecm
+<tr><td>ECM
 a+qcfg="usbnet",1 <br>
 automotive OpenLinux
 </td><td>CONFIG_USB_NET_CDCETHER</td><td>autoconnect</td><td>Ethernet Frame</td></tr>
