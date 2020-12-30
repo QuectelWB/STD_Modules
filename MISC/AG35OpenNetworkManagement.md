@@ -99,5 +99,10 @@ Interface 4 用于 客户的新增串口。
 - **usbX的IP地址是192.168.225.X**
 - **将192.168.225.1设置未为usbX的网关，并添加到操作系统的DNS配置文件中去**
 
+此时模组上，ping 192.168.225.X ,Ubuntu 上ping 192.168.225.1 都是可以的。
+
+此时如发现Ubuntu无法联网。需要在模组上添加iptables NAT。
+
+iptables -t nat -A POSTROUTING -o rmnet_data0 -j MASQUERADE --random
 
 
