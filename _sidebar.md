@@ -66,9 +66,10 @@
   - [GPSD](/MISC/gpsd.md)
   - [IPV6](/MISC/IPV6.md)
   - [OpenWrt_IPV6](/MISC/OpenWrt_IPv6.md)
-  - [Codes](/MISC/driverCodes.md.md)
-
+  - [Codes](/MISC/driverCodes.md)
+  - [AG35OpenLinuxNetworkManagement](/MISC/AG35OpenNetworkManagement.md)
+  
 
 - AboutMe
 
-	- [WhoAmI](inits/about.md.md)
+	- [WhoAmI](inits/about.md)
