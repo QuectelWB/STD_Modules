@@ -103,6 +103,12 @@ Interface 4 用于 客户的新增串口。
 
 此时如发现Ubuntu无法联网。需要在模组上添加iptables NAT。
 
-iptables -t nat -A POSTROUTING -o rmnet_data0 -j MASQUERADE --random
+	iptables -t nat -A POSTROUTING -o rmnet_data0 -j MASQUERADE --random
 
+如果还是不行
 
+	iptables -F 
+
+清除所有filter 表
+
+另外配置nat之前，记得打开ip_forwarding。
