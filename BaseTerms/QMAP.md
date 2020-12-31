@@ -1,26 +1,6 @@
-#FAQ
+About QMAP
+=====
 
-
-### enter AT commands but no response get
-
-[A] The AT instruction ends with '\r\n', each instruction has a response time, and input a valid AT returns OK normally.
-
-AT 指令不响应，首先检查下格式，AT指令必须以 \r\n 结尾，或者以\r 结尾，\n 是肯定没用的。
-AT指令有响应时间，规定时间内返回都是OK的。
-PCIe模组敲AT指令没有返回，也可能驱动报错了，检查下驱动log。
-
-###  Startup time of modules
-
-[A] Normally it is 10 seconds. 大约是10秒。高通5G模组目前的开机时间较长，正常优化中。
-
-### QMI and GobiNet which one is better?
-
-[A] Hard to say which one is better. The Qualcomm propose the GobiNet at first, and the QMI protocol came out later than Kernel 3.4. But the Linux Kernel varies considerably between 3.4 and 3.10. So for kernel version lower than 3.10, it's recommended to use GobiNet, otherwise you may meet build error with QMI driver. For those kernel version greater than 3.10, both GobiNet and QMI works fine.
-
-
-### About QMAP
-
-[A] 
 
 .. SPDX-License-Identifier: GPL-2.0
 
@@ -71,25 +51,6 @@ rmnet userspace configuration is done through netlink library librmnetctl and co
 https://source.codeaurora.org/quic/la/platform/vendor/qcom-opensource/dataservices/tree/rmnetctl
 
 [https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Documentation/networking/device_drivers/cellular/qualcomm/rmnet.rst](https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Documentation/networking/device_drivers/cellular/qualcomm/rmnet.rst)
-
-### 虚拟机里的USB3.0
-
-[A] Vmware Virtuabox USB3.0
-
-![](imgs/VMwareUSB3.0.jpg)
-
-
-Virtualbox
-
-[Virtualbox 使能usb3.0 的方法](https://techsviewer.com/how-to-install-virtualbox-extension-pack-and-enable-usb-3-0/)
-
-
-![](imgs/enble-USB-3.0-in-VirtualBox.jpg)
-
-
-### 
-
-[A] 
 
 
 

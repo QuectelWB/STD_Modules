@@ -6,10 +6,10 @@
 
 - BaseTerms
 
-  - [HardWare](/Base/HardWare.md)
-  - [AT Commands](/Base/AT.md)
-  - [Network](/Base/NetWork.md)
-  - [USB Protocol](/Base/UsbProtocolBase.md)
+  - [HardWare](/BaseTerms/HardWare.md)
+  - [AT Commands](/BaseTerms/AT.md)
+  - [Network](/BaseTerms/NetWork.md)
+  - [USB Protocol](/BaseTerms/UsbProtocolBase.md)
 
 - UsbSerial
 
