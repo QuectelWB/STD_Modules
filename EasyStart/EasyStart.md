@@ -1,5 +1,7 @@
 # EasyStart
 
+快速使用Quectel模组
+
 This chapter is for those who are not familar with LTE network, have never used AT commands and want to start datacall or connection with the Internet as quick as posible.
 
 	for EC2x/EGxx
@@ -8,12 +10,17 @@ This chapter is for those who are not familar with LTE network, have never used 
 	know much more)
 
 
-1. Check Hardware connection, Make sure the Ubuntu can recognize the USB device.
-	
-	1.Before and after the Quectel module was inserted, try  lsusb  command in  your Terminal. After the module was inserted, there will be an USB device of which the vid is 0x2C7C.
+1. Check Hardware connection, Make sure the Ubuntu can recognize the USB device. 
 
-	2. "sudo dmesg | grep usb", plug and unplug module no kernel error message printing, enumeration information
+硬件连接无问题，主控可以识别到USB模组。
 
+- Before and after the Quectel module was inserted, try  lsusb  command in  your Terminal. After the module was inserted, there will be an USB device of which the vid is 0x2C7C.
+
+lsusb 命令能看到Quectel模组（VID：0x2C7C）
+
+- "sudo dmesg | grep usb", plug and unplug module no kernel error message printing, enumeration information
+
+通过dmesg log 可以看到插拔模组的对应log
 
 	[16310.531091] usb 1-4: new high-speed USB device number 11 using xhci_hcd
 	[16310.563123] usb 1-4: New USB device found, idVendor=2c7c, idProduct=0125, bcdDevice= 3.18

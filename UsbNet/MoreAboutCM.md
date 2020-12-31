@@ -1,9 +1,6 @@
 quectel-CM
 =========
 
-CM is short for quectel-CM, or Quectel ConnectManager.
-
-quectel-CM is the recommended way for the RMNET interface modules to set up datacall.
 
 Quectel Connect Manager 又称quectel-CM，下文简称CM。
 下文中Quectel Connect Manager、quectel-CM和CM指向相同。
@@ -343,3 +340,26 @@ udhcpc
 		;;
 	esac
 
+
+
+
+
+
+### COMMON Issue
+
+You will see log as follow:
+
+![](CM1.jpg)
+
+There will be no more log later.
+
+There are some things you should check:
+
+	1.modemmanager
+
+	2.There is a valid default.script for udhcpc
+		- It is /etc/udhcpc/default.script but not /usr/share/udhcpc/default.script
+		- The default.script has invisble characters. dos2unix default.script
+		- No execution permission. chmod +w default.script
+ 
+	3.On Ubuntu/Centos PC, it's recommended and easier to use dhclient.
