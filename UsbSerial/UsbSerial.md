@@ -44,6 +44,7 @@ Add the Zero Packet Mechanism
 As required by the USB protocol, the mechanism for processing zero packets needs to be added during 
 bulk-out transmission by adding the following statements. 
 
+
 ${KERNELDIR}/driver/usb/serial/usb_wwan.c
 
 	static struct urb *usb_wwan_setup_urb(struct usb_serial *serial, 
@@ -66,6 +67,7 @@ ${KERNELDIR}/driver/usb/serial/usb_wwan.c
 	#endif    
 	return urb;   
 	}  
+
 
 
 
