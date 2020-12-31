@@ -29,7 +29,8 @@
 - Topics
 
   - [CatchLogs](Topics/CatchLogs/Catchlog.md)
-  - [CPEProducts](Topics/13.buildissuses.md)
+  - [RouterDevice](Topics/CPEProducts/SoftRouter.md)
+  - [Ubuntu](Topics/Ubuntu/How_to_use_on_Ubuntu.md)
 
 * MISC
 
