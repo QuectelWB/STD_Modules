@@ -36,7 +36,6 @@
   - [UsefullShell](Topics/UsefullSkills/UsefullShell.md)
   - [UartProgramming](Topics/UsefullSkills/AT_ttySerial.md)
   - [USB_skills](Topics/UsefullSkills/Usb_Ops_and_Sysfs.md)
-  - [PortInavailable](Topics/UsefullSkills/open_dev_failed.md)
   - [MultiModulesManagement](Topics/MultiModules/MultiModulesIssue.md)
 
 * MISC
