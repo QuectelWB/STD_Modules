@@ -1,6 +1,8 @@
 UsbSerial
 ======
 
+USB 接口可以是tty设备。
+Qualcomm模组，一般有以下端口
 
 	DM Port (for diagnose, firmware upgrading);
 	GPS Port (for nmea log output)
