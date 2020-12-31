@@ -49,5 +49,10 @@ lsof 和 fuser 是两个非常好用的指令查哪些
 	fuser /dev/ttyUSB0
 	PID is returned and the process is queried with the "ps" command
 
+dns
+--------
+
+host dig nslookup
+
 
 
