@@ -32,6 +32,8 @@
   - [RouterDevice](Topics/CPEProducts/SoftRouter.md)
   - [Ubuntu](Topics/Ubuntu/How_to_use_on_Ubuntu.md)
   - [Speed](Topics/NetworkSpeed/Android_Loopback.md)
+  - [HostDriver](Topics/HostDriver/HostDriver.md)
+  - [ppp](Topics/ppp/ppp.md)
 
 * MISC
 
