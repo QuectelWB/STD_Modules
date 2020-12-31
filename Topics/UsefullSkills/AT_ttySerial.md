@@ -50,7 +50,7 @@ echo -ne "ati\r" | busybox microcom -t 3 /dev/ttyUSB2
 
 python之serial类
 
-[testWifi.py](archives/testWifi.py)
+[testWifi.py](Topics/UsefullSkills/archives/testWifi.py)
 
 C语言之termios
 
