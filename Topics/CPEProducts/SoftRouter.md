@@ -39,6 +39,8 @@ OpenWrt
 
 ### OpenWrt 集成Quectel驱动和工具
 
+[OpenWrt 路由器挂载EC20 EC25等4G模组](http://www.10qianwan.com/articledetail/647453.html)
+
 #### patch方式
 
 Linux内核和驱动，还可以用打patch的方式。因为Linux内核和OpenWrt的其他软件包一样，是在编译过程中下载解压的，OpenWrt对这些软件包的修改方法是将这些软件包编译过程中，解压后可以加上用户自己的patch，可以参考
