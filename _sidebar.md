@@ -4,15 +4,12 @@
 
   - [EasyStart](/EasyStart/EasyStart.md)
 
-
 - BaseTerms
 
   - [HardWare](/Base/HardWare.md)
   - [AT Commands](/Base/AT.md)
   - [Network](/Base/NetWork.md)
   - [USB Protocol](/Base/UsbProtocolBase.md)
-
-
 
 - UsbSerial
 
@@ -34,6 +31,13 @@
   - [Speed](Topics/NetworkSpeed/Android_Loopback.md)
   - [HostDriver](Topics/HostDriver/HostDriver.md)
   - [ppp](Topics/ppp/ppp.md)
+  - [udev](Topics/UsefullSkills/udev.md)
+  - [strace](Topics/UsefullSkills/stace.md)
+  - [shell](Topics/UsefullSkills/usefull_shells.md)
+  - [UartProgramming](Topics/UsefullSkills/AT_ttySerial.md)
+  - [USB_skills](Topics/UsefullSkills/Usb_Ops_and_Sysfs.md)
+  - [PortInavailable](Topics/UsefullSkills/open_dev_failed.md)
+  - [MultiModulesManagement](Topics/MultiModules/MultiModulesIssue.md)
 
 * MISC
 
