@@ -54,9 +54,8 @@ python之serial类
 
 C语言之termios
 
-   [myAT.c](archives/myAT.c)
+[myAT.c](archives/myAT.c)
 
-----------
 
 
 
