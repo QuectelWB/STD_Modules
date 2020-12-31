@@ -51,4 +51,4 @@
 
 - AboutMe
 
-	- [WhoAmI](inits/about.md)
+	- [WhoAmI](about.md)
