@@ -1,6 +1,8 @@
 <img width="600px"  src="QuectelLogo.png">
 
-# QUectel Standard Modules User Guide
+# Quectel标准模组使用指南
+
+# Quectel Standard Modules User Guide
 
 - This webpage is set up for guiding the customers to use Quectel Modules , especially for LTE and 5G modules.
 
