@@ -4,7 +4,7 @@
 
 # Quectel Standard Modules User Guide
 
-- This webpage is set up for guiding the customers to use Quectel Modules , especially for LTE and 5G modules.
+- This webpage is for guiding the customers to use Quectel Modules , especially for LTE and 5G modules.
 
 - 本页面用于指导用户在Linux系统上使用Quectel的LTE/5G模组。
 
