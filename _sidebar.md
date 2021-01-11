@@ -37,6 +37,7 @@
   - [UartProgramming](Topics/UsefullSkills/AT_ttySerial.md)
   - [USB_skills](Topics/UsefullSkills/Usb_Ops_and_Sysfs.md)
   - [MultiModulesManagement](Topics/MultiModules/MultiModulesIssue.md)
+  - [PCIe](Topics/PCIe/PCIeBringup.md)
 
 * MISC
 
