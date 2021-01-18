@@ -1,5 +1,7 @@
 # EasyStart
 
+**EC2X篇**
+
 快速使用Quectel模组
 
 This chapter is for those who are not familar with LTE network, have never used AT commands and want to start datacall or connection with the Internet as quick as posible.
@@ -72,7 +74,7 @@ echo 2C7C 0800 > /sys/bus/usb-serial/drivers/option1/new_id
 
 ----------
 
-# Level 1  使用ECM网卡
+> Level 1  使用ECM网卡
 
 AT指令将模组配置成ECM接口
 	
@@ -86,7 +88,7 @@ AT指令将模组配置成ECM接口
 
 ----------
 
-# Level 2 ppp拨号
+> Level 2 ppp拨号
 
 Step 1 确认/dev/ttyUSB3 是否存在
 
@@ -95,14 +97,14 @@ Step 2 修改linux-ppp-scripts_V1.2
 
 
 
-> 方式1： 拷贝 quectel-chat-connect quectel-chat-disconnect quectel-ppp 到 /etc/ppp/peers 目录下。
+- 方式1： 拷贝 quectel-chat-connect quectel-chat-disconnect quectel-ppp 到 /etc/ppp/peers 目录下。
 并在 quectel-ppp 里修改你的串口设备名，pppd 拨号使用的 username，password。
 在 quectel-chat-connect 里修改你的 APN。APN/username/password 是从你的网络提供商那里获取的。
 然后使用下面的命令启动 ppp 拨号， 命令最后的 & 可以让 pppd 后台运行
 pppd call quectel-ppp &
 
 
-> 方式2：使用<font color="red">quectel-pppd.sh </font>  拨号，命令形式如下:
+- 方式2：使用<font color="red">quectel-pppd.sh </font>  拨号，命令形式如下:
 <font color="red">./quectel-pppd.sh </font> 串口设备名(比如/dev/ttyUSB3) APN username password
 
 	#quectel-pppd devname apn user password	
@@ -120,7 +122,7 @@ quectel-ppp-kill 用来挂断拨号的，pppd必须被正常的挂断，否则�
 
 ----------
 
-# Level 3 RMNET网卡
+> Level 3 RMNET网卡
 
 Ubuntu内核自带qmi_wwan
 
@@ -139,3 +141,26 @@ Ubuntu内核自带qmi_wwan
 	sudo ./quectel-CM &
 
 ----------
+
+**EC200X篇**
+
+EC200X和EC2X在使用差别有共通处，也有很多不同处。
+
+	modprobe option
+	#如果是EC200S或者EC600S
+	echo 0x2C7C 0x6002 > /sys/bus/usb-serial/option1/new_id
+	#如果是EC200T
+	echo 0x2C7C 0x6002 > /sys/bus/usb-serial/option1/new_id
+	#AT指令检查网卡类型，使用ECM网卡
+	AT+QCFG="usbnet"返回1
+	#AT拨号
+	AT+QICSGP=1,5,"cmnet"
+	AT+QNETDEVCTL=1,1,1
+	#dhcp client 
+	udhcpc -i usb0
+
+
+
+
+
+:)

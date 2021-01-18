@@ -1,4 +1,4 @@
-If you are using Ubuntu , you may encounter some problems as below:
+Ubuntu 常遇到的问题
 
 ### modemmanager
 
@@ -8,11 +8,7 @@ apt-get remove --purge modemmanager
 
 如果坚持使用ModemManager
 
-
-If your modemmanager is the default one or get it through apt-get.
-
-The default version is not suitable for RG500Q and RM500Q.
-
+Ubuntu 20.04 默认自带的以及apt安装的ModemManager无法给5G模组拨号
 
 	q@q-K501LB:~/Carl/carls/ModemManager$ mmcli --version
 	mmcli 1.12.8
@@ -20,10 +16,10 @@ The default version is not suitable for RG500Q and RM500Q.
 
 **支持5G的ModemManager**
 
-RMNET(usbnet 0,qmi/GobiNet driver) interface cannot use Modemmanager.
+RMNET(usbnet 0,qmi/GobiNet driver) 无法使用ModemManager拨号.
 
-	qmi_wwan_q and GobiNet is not in the Kernel Upstreaming flow，so modemmanager never test based on it and not support 5G modules；
-	Modemmanager support modules on qmi_wwan, but qmi_wwan doesn't support QMAP. 
+	qmi_wwan_q 和 GobiNet 不属于Kernel upstreamming, 所以ModemManager配合移远提供的qmi_wwan_q和GobiNet驱动的时候测试遇到不支持5G模组;
+	ModemManager支持内核自带的qmi_wwan
 
 It is recommend to use cdc_mbim driver,(at+qcfg=usbnet,2)
          And the modemmanager must apply next patchs.
@@ -47,6 +43,11 @@ It is recommend to use cdc_mbim driver,(at+qcfg=usbnet,2)
 	 
 	    quectel: allow MBIM devices
 
+ModemManager 的编译请参考
+
+- https://www.linuxfromscratch.org/blfs/view/svn/general/ModemManager.html
+- https://www.linuxfromscratch.org/blfs/view/svn/general/libqmi.html
+- https://www.linuxfromscratch.org/blfs/view/7.10-systemd/general/libmbim.html
 
 ### make sure qmi_wwan_q have been probed
 
@@ -177,5 +178,15 @@ Systemd 是 Linux 系统工具，用来启动守护进程，已成为大多数�
 重启相关服务
 
 	$ sudo systemctl start my.service           启动服务
+
+
+CentOS的编译问题
+------
+
+usb_serial_port 结构体的内容报错
+
+	下载内核源码
+	https://vault.centos.org/7.0.1406/os/Source/SPackages/kernel-3.10.0-123.el7.src.rpm
+
 
 

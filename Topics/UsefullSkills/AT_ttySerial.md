@@ -44,6 +44,7 @@ cat /dev/ttyUSB2
 	不推荐cat串口的操作（会阻塞；Android禁止cat AT端口）
 
 如果装有串口工具如microcom
+<br/>
 echo -ne "ati\r" | busybox microcom -t 3 /dev/ttyUSB2
 
 ### 编程 ###
@@ -54,7 +55,7 @@ python之serial类
 
 C语言之termios
 
-[myAT.c](archives/myAT.c)
+[myAT.c](Topics/UsefullSkills/archives/myAT.c)
 
 
 
