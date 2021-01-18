@@ -179,3 +179,13 @@ Systemd 是 Linux 系统工具，用来启动守护进程，已成为大多数�
 	$ sudo systemctl start my.service           启动服务
 
 
+CentOS的编译问题
+------
+
+usb_serial_port 结构体的内容报错
+
+	下载内核源码
+	https://vault.centos.org/7.0.1406/os/Source/SPackages/kernel-3.10.0-123.el7.src.rpm
+
+
+
