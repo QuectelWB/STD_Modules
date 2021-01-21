@@ -27,8 +27,10 @@ Quectel模块一般通过USB/PCIe/Uart连接到另一个嵌入式处理器（称
 
 ----------
 Links:
-
+<br>
 *[`Official Website`](https://www.quectel.com/ "Official Website")*
-
+<br>
 *[`Forums`](https://Forums.quectel.com/ "Forums")*
+<br>
+*[`中文论坛`](https://forumschinese.quectel.com/ "中文论坛")*
 
