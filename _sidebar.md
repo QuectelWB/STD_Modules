@@ -38,6 +38,7 @@
   - [USB_skills](Topics/UsefullSkills/Usb_Ops_and_Sysfs.md)
   - [MultiModulesManagement](Topics/MultiModules/MultiModulesIssue.md)
   - [PCIe](Topics/PCIe/PCIeBringup.md)
+  - [Connection](Topics/NetWork/NetWorkConnection.md)
 
 * MISC
 
