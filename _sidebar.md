@@ -2,25 +2,25 @@
 
 - QuickStart
 
-  - [EasyStart](/EasyStart/EasyStart.md)
+  - [EasyStart](EasyStart/EasyStart.md)
 
 - BaseTerms
 
-  - [HardWare](/BaseTerms/HardWare.md)
-  - [AT Commands](/BaseTerms/AT.md)
-  - [Network](/BaseTerms/NetWork.md)
-  - [USB Protocol](/BaseTerms/UsbProtocolBase.md)
+  - [HardWare](BaseTerms/HardWare.md)
+  - [AT Commands](BaseTerms/AT.md)
+  - [Network](BaseTerms/NetWork.md)
+  - [USB Protocol](BaseTerms/UsbProtocolBase.md)
 
 - UsbSerial
 
-  - [UsbSerialDriver](/UsbSerial/UsbSerial.md)
+  - [UsbSerialDriver](UsbSerial/UsbSerial.md)
 
 - UsbNet
 
-  - [UsbNetInterfaceDriver](/UsbNet/UsbNet.md)
-  - [SetupDataCall](/UsbNet/DialUp.md)
-  - [MoreAboutCM](/UsbNet/MoreAboutCM.md)
-  - [aboutPPP](/UsbNet/ppp.md)
+  - [UsbNetInterfaceDriver](UsbNet/UsbNet.md)
+  - [SetupDataCall](UsbNet/DialUp.md)
+  - [MoreAboutCM](UsbNet/MoreAboutCM.md)
+  - [aboutPPP](UsbNet/ppp.md)
 
   
 - Topics
@@ -42,13 +42,13 @@
 
 * MISC
 
-  - [LBS](/MISC/LBS.md)
-  - [DHCP](/MISC/DHCP.md)
-  - [GPSD](/MISC/gpsd.md)
-  - [IPV6](/MISC/IPV6.md)
-  - [OpenWrt_IPV6](/MISC/OpenWrt_IPv6.md)
-  - [Codes](/MISC/driverCodes.md)
-  - [AG35OpenLinuxNetworkManagement](/MISC/AG35OpenNetworkManagement.md)
+  - [LBS](MISC/LBS.md)
+  - [DHCP](MISC/DHCP.md)
+  - [GPSD](MISC/gpsd.md)
+  - [IPV6](MISC/IPV6.md)
+  - [OpenWrt_IPV6](MISC/OpenWrt_IPv6.md)
+  - [Codes](MISC/driverCodes.md)
+  - [AG35OpenLinuxNetworkManagement](MISC/AG35OpenNetworkManagement.md)
   
 
 - AboutMe
