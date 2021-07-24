@@ -45,7 +45,7 @@
   - [模块功能](MISC/MFeature.md)
   - [计算机网络](MISC/NetWork.md)
   - [GPSD](MISC/gpsd.md)
-  - [IPV6](MISC/IPV6.md)
+  - [USB识别和掉口](MISC/USB_Disconnection.md)
   - [OpenWrt_IPV6](MISC/OpenWrt_IPv6.md)
   - [Codes](MISC/driverCodes.md)
   - [AG35OpenLinuxNetworkManagement](MISC/AG35OpenNetworkManagement.md)
