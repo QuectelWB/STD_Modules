@@ -42,8 +42,8 @@
 
 * MISC
 
-  - [LBS](MISC/LBS.md)
-  - [DHCP](MISC/DHCP.md)
+  - [模块功能](MISC/MFeature.md)
+  - [计算机网络](MISC/NetWork.md)
   - [GPSD](MISC/gpsd.md)
   - [IPV6](MISC/IPV6.md)
   - [OpenWrt_IPV6](MISC/OpenWrt_IPv6.md)
