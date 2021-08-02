@@ -267,6 +267,29 @@ lsusb -t
 对5G模组如RM500Q的RNDIS暂未测试通过。如有网络需求，建议用ECM替代。
 
 
+##More about ECM/RNDIS
+
+/etc/mobileap_cfg.xml LAN配置
+
+		<MobileAPLanCfg>
+			<EnableIPV4>1</EnableIPV4>
+			<EnableIPV6>1</EnableIPV6>
+			<GatewayURL>mobileap.qualcomm.com</GatewayURL>
+			<WlanMode>AP</WlanMode>
+			<WlanRestartDelay>1</WlanRestartDelay>
+			<MobileAPSTABridgeEnable>0</MobileAPSTABridgeEnable>
+			<HostAPDCfg>/etc/misc/wifi/hostapd.conf</HostAPDCfg>
+                        <HostAPDEntropy>/data/entropy_file</HostAPDEntropy>
+			<STAModeHostAPDCfg>/etc/misc/wifi/sta_mode_hostapd.conf</STAModeHostAPDCfg>
+			<APIPAddr>192.168.225.1</APIPAddr>
+			<SubNetMask>255.255.255.0</SubNetMask>
+			<EnableDHCPServer>1</EnableDHCPServer>
+			<DHCPCfg>
+				<StartIP>192.168.225.20</StartIP>
+				<EndIP>192.168.225.60</EndIP>
+				<LeaseTime>43200</LeaseTime>
+			</DHCPCfg>
+
 
 
 
