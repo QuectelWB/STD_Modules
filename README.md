@@ -1,4 +1,4 @@
-# How to Use Quectel Modules
+# 模组使用指南
 
 ----------
 
@@ -6,9 +6,7 @@
 
 ## Quectel ##
 
-移远公司及其产品
-
-移远是一家无线通信技术方案供应商。
+无线通信技术方案供应商。
 
 
 ![](https://www.quectel.com/images/about/ban2.png)

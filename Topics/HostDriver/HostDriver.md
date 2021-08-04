@@ -5,28 +5,25 @@
 驱动不匹配
 -----
 
+根据USB协议，驱动匹配对应的设备，取决于USB设备的描述符信息。
 
-According to the USB protocol, the driver match which device depends on the USB descriptors.
+有时候，你会遇到
 
+	缺少USB或者ttyUSB;
+	驱动对应关系不对;
+	adb功能无法打开等；
 
-Sometimes,you might see:
-
-	The option driver match all the USB interface, or no Net device, no net driver matched;
-	ADB cannot work;
-	Number of ttyUSB is wrong, even no ttyUSB device at all
-
-Such as RG801, the correct one
+譬如正常情况，对RG81，
  
 ![](/imgs/lsusb01.png)
 
-But one customer saw his
+但是客户看到的现象是
 
 ![](/imgs/lsusb_wrong.png)
 
-Because Quectel have upgrade or change the feature or defination of the USB interface.
 
+这种情况需要调整option.c
 
-Please modify the opion.c as follow
 
     option_probe(
         ...
@@ -37,11 +34,11 @@ Please modify the opion.c as follow
             }
         ...
 
-The raw option.c
+原始情况
 
 	bInterfaceNumber == 0 
 
-be modified with
+修改成
 
 	bInterfaceNumber == 0 | bInterfaceNumber == 1
 
