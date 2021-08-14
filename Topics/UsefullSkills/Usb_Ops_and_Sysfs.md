@@ -1,17 +1,21 @@
 USB ops and sysfs
 =====
 
+获取串口对应VID PID
+----
+
+	$ $ grep PRODUCT= /sys/bus/usb-serial/devices/ttyUSB0/../uevent
+	PRODUCT=67b/2303/300
+
 Disable & Enable USB from terminal
 -----
 
+参考
+
 from https://www.linux.com/training-tutorials/disable-enable-usb-terminal/
 
-- First time, our modem must be plugged into our usb. 
 
-- After that, we trying to connect with wvdial command. Ups, I cannot got carrier.The first solution for a long time is I pull out the modem from usb and wait a few second than I plug again into usb. its very make me feel bored and angry.
-
-- So, to fix the problem without do the really bad clue. First time, You must open the terminal and make access as super user : sudo lsusb -t|less, this command will be give you list the active usb. And in the result is :
- 
+*lsusb -t* 获取USB Hierarchy
 	
 	/:  Bus 05.Port 1: Dev 1, class=root_hub, Driver=uhci_hcd/2p, 12M
 	/:  Bus 04.Port 1: Dev 1, class=root_hub, Driver=uhci_hcd/2p, 12M
@@ -32,25 +36,10 @@ from https://www.linux.com/training-tutorials/disable-enable-usb-terminal/
 	
 	echo 2-1 |sudo tee /sys/bus/usb/drivers/usb/unbind <- to make usb disable/turn off
 
-Notes : 2-1 is the process that we will be kill.
+这种情况相当于断开USB设备，同理
 
-after you do that command, the usb will be disable.
 
-- Trying to dial again with wvdial. So we have the result  :
-eject: unable to find or open device for: `/dev/sr0
-	
-	WvDial: Internet dialer version 1.60
-	Cannot open /dev/ttyUSB0: No such file or directory
-	Cannot open /dev/ttyUSB0: No such file or directory
-	Cannot open /dev/ttyUSB0: No such file or directory
-
-*This is good information.Thats have mean, the usb succesfully set as disable.
-
-- We do again the command such as step number 5 but with different input at the end. So ,like this :
-echo 2-1 |sudo tee /sys/bus/usb/drivers/usb/bind <- to make usb active again // the different command just in the end of syntax.
-NB : 2-1 is process that will be make enable.
-
-- Try again with the wvdial command like as before. And. i no need to pull out and plug in again modem in usb.
+	echo 2-1 |sudo tee /sys/bus/usb/drivers/usb/bind <- to make usb enable/turn on
 
 
 重置USB总线
@@ -134,34 +123,6 @@ Virtualbox
 
 
 ![](imgs/enble-USB-3.0-in-VirtualBox.jpg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 :)
