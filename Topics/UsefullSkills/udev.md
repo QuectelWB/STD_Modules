@@ -225,6 +225,21 @@ gcc -o udevhotplug udev-hotplugin.c -ludev
 	/dev/EC25.Modem -> ttyUSB3
 	/dev/EC25.NEMA -> ttyUSB1
 
+
+### 多个模组的映射
+
+添加匹配项目
+
+udevadm info --attribute-walk --path=/sys/bus/usb-serial/devices/ttyUSB0
+
+譬如添加 KERNELS=="2-1.1"
+
+	SUBSYSTEMS=="usb", KERNEL=="ttyUSB[0-9]*", KERNELS=="1-2" , ATTRS{idVendor}=="2c7c", ATTRS{idProduct}=="0125", ENV{.LOCAL_ifNum}=="03", SYMLINK+="EC25.MO    DEM", MODE="0660"
+
+注意执行 udevadm control --reload-rules 和 udevadm control --reload 使生效
+
+
+
 ----------
 
 ## udev实现插入模组自动拨号
