@@ -1,0 +1,51 @@
+From f3604e791c4a01f70802a8e56feddfa24a2b7547 Mon Sep 17 00:00:00 2001
+From: "klein.zhou" <klein.zhou@quectel.com>
+Date: Fri, 21 Aug 2020 11:11:49 +0800
+Subject: [PATCH] adjust tcp buffersize for 5G
+
+Signed-off-by: klein.zhou <klein.zhou@quectel.com>
+---
+ .../android/internal/telephony/dataconnection/DataConnection.java | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/frameworks/opt/telephony/src/java/com/android/internal/telephony/dataconnection/DataConnection.java b/frameworks/opt/telephony/src/java/com/android/internal/telephony/dataconnection/DataConnection.java
+index 404c452..b02aed6 100644
+--- a/frameworks/opt/telephony/src/java/com/android/internal/telephony/dataconnection/DataConnection.java
++++ b/frameworks/opt/telephony/src/java/com/android/internal/telephony/dataconnection/DataConnection.java
+@@ -760,6 +760,8 @@ public class DataConnection extends StateMachine {
+     private static final String TCP_BUFFER_SIZES_LTE  =
+             "524288,1048576,2097152,262144,524288,1048576";
+     private static final String TCP_BUFFER_SIZES_HSPAP= "122334,734003,2202010,32040,192239,576717";
++    private static final String TCP_BUFFER_SIZES_NR =
++            "2097152,6291456,16777216,512000,2097152,8388608";
+ 
+     private void updateTcpBufferSizes(int rilRat) {
+         String sizes = null;
+@@ -792,6 +794,7 @@ public class DataConnection extends StateMachine {
+             // no override - use telephony defaults
+             // doing it this way allows device or carrier to just override the types they
+             // care about and inherit the defaults for the others.
++            log("updateTcpBufferSizes--rilRat = " + rilRat);
+             switch (rilRat) {
+                 case ServiceState.RIL_RADIO_TECHNOLOGY_GPRS:
+                     sizes = TCP_BUFFER_SIZES_GPRS;
+@@ -827,11 +830,16 @@ public class DataConnection extends StateMachine {
+                 case ServiceState.RIL_RADIO_TECHNOLOGY_HSPAP:
+                     sizes = TCP_BUFFER_SIZES_HSPAP;
+                     break;
++                case ServiceState.RIL_RADIO_TECHNOLOGY_NR:
++                    log("updateTcpBufferSizes-NR");
++                    sizes = TCP_BUFFER_SIZES_NR;
++                    break;
+                 default:
+                     // Leave empty - this will let ConnectivityService use the system default.
+                     break;
+             }
+         }
++        log("updateTcpBufferSizes--sizes = " + sizes);
+         mLinkProperties.setTcpBufferSizes(sizes);
+     }
+ 
+-- 
+2.7.4
+
