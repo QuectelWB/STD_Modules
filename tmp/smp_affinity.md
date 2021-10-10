@@ -82,8 +82,12 @@ MIS:          0
 
 
 ## 网卡负载均衡
-对单队列网卡而言，smp_affinity和smp_affinity_list配置多CPU是没有效果的。但可以用RPS/RFS（Receive Packet Steering/Receive flow steering）来搞定：RPS/RFS主要是针对单队列网卡多CPU环境。虽然有这些虚拟队列的支撑，但是毕竟是软件模拟的，由于RPS只是单纯把数据包均衡到不同的cpu，这个时候如果应用程序所在的cpu和软中断处理的cpu不是同一个，此时对于cpu cache的影响会很大，那么RFS确保应用程序处理的cpu跟软中断处理的cpu是同一个，这样就充分利用cpu的cache。不在举例 请参考/网卡软中断过高问题优化总结/多队列网卡简介/Linux内核 RPS和RFS功能详细测试分析
-smp_affinity主要针对多队列网卡多CPU环境，如网卡支持多队列则可使用SMP irq affinity直接绑定硬中断，要是不支持多队列，那就用RPS解决网络软中断的负载均衡，即单个网卡的软中断分散到多个CPU处理，避免单个CPU负载过大导致性能瓶颈。
+
+对单队列网卡而言，smp_affinity和smp_affinity_list配置多CPU是没有效果的。
+
+- 但可以用RPS/RFS（Receive Packet Steering/Receive flow steering）来搞定：**RPS/RFS主要是针对单队列网卡多CPU环境**。虽然有这些虚拟队列的支撑，但是毕竟是软件模拟的，由于RPS只是单纯把数据包均衡到不同的cpu，这个时候如果应用程序所在的cpu和软中断处理的cpu不是同一个，此时对于cpu cache的影响会很大，那么RFS确保应用程序处理的cpu跟软中断处理的cpu是同一个，这样就充分利用cpu的cache
+
+- smp_affinity主要针对 **多队列网卡多CPU环境**，如网卡支持多队列则可使用SMP irq affinity直接绑定硬中断，要是不支持多队列，那就用RPS解决网络软中断的负载均衡，即单个网卡的软中断分散到多个CPU处理，避免单个CPU负载过大导致性能瓶颈。
 
 确定网卡是否支持多队列:
 
