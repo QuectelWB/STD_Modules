@@ -21,7 +21,9 @@ Loopback 测试不需要插 SIM 卡(也就是不需要实网)，也不需要仪�
 - 使能loopback
 
 	通过QPST传文件，详见文档 AT+QNVFR="/nv/item_files/modem/data/3gpp/ps/loopback_config.txt"
-	quectel-Cm -l 回环倍数
+	quectel-CM -l 回环倍数
+
+	**高通模组也已经有用AT指令直接操作的方法, 见相关资料**
 
 - iperf2 打流
 
@@ -80,3 +82,5 @@ ql-ril.conf 中添加
 ## ref
 
 [Kernel Doc: SMP IRQ affinity](https://www.kernel.org/doc/html/latest/core-api/irq/irq-affinity.html)
+
+[其他，关于 以太网、wifi的回环测试]()
