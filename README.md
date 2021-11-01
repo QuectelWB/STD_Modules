@@ -21,7 +21,7 @@
 
 Quectel模块一般通过USB/PCIe/Uart连接到另一个嵌入式处理器（称Host AP，或EAP，External AP）。使用远程通信模块作为设备，使用在主机AP上移植模块所需的驱动程序。这种方案称为标准模块方案。
 
-![Quectel_modules_stuff.png](Quectel_Modules.png)
+![Quectel_modules_stuff.png](PNGs/Quectel_Modules.png)
 
 ----------
 Links:

@@ -27,4 +27,7 @@ mytestCodes
 
 ## Thanks for your Support
 
-![](QR.png)
+<a href="https://quectelwb.github.io/STD_Modules" target="-blank" titile="ME"><img src="PNGs/QR.png"></a>
+    
+
+    

@@ -50,8 +50,6 @@
   - [Codes](MISC/driverCodes.md)
   - [AG35OpenLinuxNetworkManagement](MISC/AG35OpenNetworkManagement.md)
   - [pppd_FAQ-翻译](MISC/pppd-FAQ.md)
-  
+ 
 
-- AboutMe
-
-	- [WhoAmI](about.md)
+* [WhoAmI](about.md)
