@@ -189,4 +189,11 @@ usb_serial_port 结构体的内容报错
 	https://vault.centos.org/7.0.1406/os/Source/SPackages/kernel-3.10.0-123.el7.src.rpm
 
 
+在CentOS以及其他RedHat变体上，只需为正在运行的内核提取相应的文件：
+	
+	zcat /boot/symvers-$(uname -r).gz > ./Module.symvers
+	
+在Ubuntu和其他Debian变体上，该文件将自动找到。但是，如果需要，文件在这里：
+	
+	/usr/src/linux-headers-$(uname -r)/Module.symvers
 
