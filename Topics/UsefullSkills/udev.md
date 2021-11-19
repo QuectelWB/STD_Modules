@@ -301,8 +301,26 @@ Contents can be:
 	
 	ip link set rmnet_usb0 name eth0 //重命名为usb0
 
+## ModemManager filter
+
+<br>
+- ID_MM_DEVICE_IGNORE
+	
+	ATTRS{idVendor}=="1004", ENV{ID_MM_DEVICE_IGNORE}="1"
+	
+<br>
+https://www.freedesktop.org/software/ModemManager/api/latest/ModemManager-Common-udev-tags.html
+
+<br>
+
+https://askubuntu.com/questions/399263/udev-rules-seem-ignored-can-not-prevent-modem-manager-from-grabbing-device
+
+<br>
+
 ## 参考文档
 
 http://blog.chinaunix.net/uid-20506382-id-1939795.html
+
+
 
 
