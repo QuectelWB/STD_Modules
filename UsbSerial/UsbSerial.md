@@ -134,4 +134,28 @@ In the case that an Option driver in Ubuntu PC or kernel is compiled into a kern
 In the case of cross-compilation of embedded system, the Makefile needs to be modified, and the option.ko obtained by compilation is copied to /lib/modules/ XXX/directory of the target platform.
 
 
+## stty
+
+调整串口的属性
+	 
+	  stty -F /dev/ttyUSB2 
+	 
+	  stty -F /dev/ttyUSB2 ignbrk
+	  stty -F /dev/ttyUSB2 -brkint
+	  stty -F /dev/ttyUSB2 -icrnl
+	  stty -F /dev/ttyUSB2 -imaxbel
+	  stty -F /dev/ttyUSB2 -opost
+	  stty -F /dev/ttyUSB2  -onlcr
+	  stty -F /dev/ttyUSB2 -isig
+	  stty -F /dev/ttyUSB2 -icanon
+	  stty -F /dev/ttyUSB2 -iexten
+	  stty -F /dev/ttyUSB2 -echo
+	  stty -F /dev/ttyUSB2 -echoe
+	  stty -F /dev/ttyUSB2 -echok
+	  stty -F /dev/ttyUSB2 -echoctl
+	  stty -F /dev/ttyUSB2 -echoke
+	 
+	  stty -F /dev/ttyUSB2 
+	 
+
 
