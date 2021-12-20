@@ -67,12 +67,17 @@ check it by "lsusb -t".
 Find your net interface with a strange name?
 
 	vim /etc/default/grub
-       		GRUB_CMDLINE_LINUX=net.ifnames=0 biosdevname=0 
+       		GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
 	grub-mkconfig -o /boot/grub/grub.cfg
 
 
 reboot , and everything calm down.
 
+在CentOS 上，情况可能会不一样。
+参考 https://www.cnblogs.com/liuyakai/p/14267734.html
+	
+	grub2-mkconfig    -o   /boot/grub2/grub.cfg 
+	
 If you don't like the ethX and usbX
 
 [usbnet.c](https://elixir.bootlin.com/linux/latest/source/drivers/net/usb/usbnet.c)
