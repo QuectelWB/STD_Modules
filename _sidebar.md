@@ -50,6 +50,6 @@
   - [Codes](MISC/driverCodes.md)
   - [AG35OpenLinuxNetworkManagement](MISC/AG35OpenNetworkManagement.md)
   - [pppd_FAQ-翻译](MISC/pppd-FAQ.md)
- 
+  - [更多关于Debian类系统](MISC/Ubuntu.md)
 
 * [WhoAmI](about.md)
