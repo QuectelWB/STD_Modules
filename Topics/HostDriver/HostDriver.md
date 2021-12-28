@@ -280,9 +280,9 @@ PM
 客户出于产品目的，需要修改MAC地址或者固定IP地址。
 
 客户可以使用命令
-
-	ifconfig wwan0.1 hw ether xx:xx:xx:xx:xx:xx
 	
+	ifconfig wwan0.1 hw ether xx:xx:xx:xx:xx:xx
+		
 如果需要开机固定，请命令添加到开机脚本中。
 
 但是！！！
@@ -351,6 +351,25 @@ qmi_wwan_q.c
 	};
 
 	
+> 新版本的 qmi_wwan_mac_addr 里检查的项目太多 
+	
+	static int qmi_wwan_mac_addr(struct net_device *dev, void *p)
+	{
+		int ret;
+		struct sockaddr *addr = p;
+
+		memcpy(dev->dev_addr, addr->sa_data, ETH_ALEN);
+	#if 0
+		ret = eth_prepare_mac_addr_change(dev, p);
+		if (ret < 0)
+			return ret;
+		if (possibly_iphdr(addr->sa_data))
+			return -EADDRNOTAVAIL;
+		eth_commit_mac_addr_change(dev, p);
+	#endif
+		return 0;
+	}
+
 
 编译报错
 ---
