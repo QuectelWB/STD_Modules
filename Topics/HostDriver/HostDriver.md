@@ -359,17 +359,26 @@ qmi_wwan_q.c
 		struct sockaddr *addr = p;
 
 		memcpy(dev->dev_addr, addr->sa_data, ETH_ALEN);
-	#if 0
-		ret = eth_prepare_mac_addr_change(dev, p);
-		if (ret < 0)
-			return ret;
-		if (possibly_iphdr(addr->sa_data))
-			return -EADDRNOTAVAIL;
-		eth_commit_mac_addr_change(dev, p);
-	#endif
+		
 		return 0;
 	}
 
+按照这个思路
+	
+	
+	static int qmi_wwan_bind(struct usbnet *dev, struct usb_interface *intf)
+	{
+		...
+		unsigned char myaddr[]={0xa,0xb,0xc,0xd,0xe,0xf,00};
+
+		memcpy(dev->net->dev_addr,myaddr,ETH_ALEN);
+		...
+	}
+
+进一步做的事情
+
+- MAC地址组成的含义
+- insmod 传参, insmod qmi_wwan.ko XX:XX:XX:XX:XX:XX
 
 编译报错
 ---
