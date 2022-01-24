@@ -288,6 +288,27 @@ As this way.
 
 ![](usbnet_adapter.png)
 
+同理，如果客户希望一个PID固定一个网卡名字
+	
+	
+	usbnet_probe:
+		...
+			if(xdev->descriptor.idProduct==cpu_to_le16(0x0900))
+				strcpy (net->name, "net001");
+			if(xdev->descriptor.idProduct==cpu_to_le16(0x0901))
+				strcpy (net->name, "net001");
+			if(xdev->descriptor.idProduct==cpu_to_le16(0x0902))
+				strcpy (net->name, "net002");
+			if(xdev->descriptor.idProduct==cpu_to_le16(0x0903))
+				strcpy (net->name, "net003");
+			if(xdev->descriptor.idProduct==cpu_to_le16(0x0904))
+				strcpy (net->name, "net005");
+			if(xdev->descriptor.idProduct==cpu_to_le16(0x0905))
+				strcpy (net->name, "net006");
+	
+
+
+
 > udev
 
 touch a rules in /etc/udev/rules.d
