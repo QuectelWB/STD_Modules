@@ -6,8 +6,6 @@
 主控连接Quectel模组后，主控上的同时还有以太网和无线网卡。无线网卡工作在AP模式，其他设备通过连接该无线网卡的WIFI，可以实现联网功能。以太网网卡也与其他设备连接，其他设备也能通过LTE/5G模组正常联网。
 
 
-NAT
-----
 
 一般来说，实现LTE/5G拨号成功后，同时给连接到客户主控上的WIFI、Ethernet网卡的其他设备提供网络，通常方法包括两种
 
@@ -15,10 +13,13 @@ NAT
 - Bridge
 
 
-the Quectel network card as the external network interface, to meet the network connection needs of the whole system.
+NAT
+----
 
-There is an optional methods
+NAT 就是指一种网络共享，ip地址转换的方式。
 
+    
+    sysctl net.ipv4.ip_forward=1  // echo 1 > /sys/net/ipv4/ip_forward 
 
 ![](NAT.png)
 
