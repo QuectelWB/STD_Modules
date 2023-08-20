@@ -22,16 +22,12 @@ SDK中提供了拨号的例子
 	-rwxr-xr-x 1 biao biao  2425 Aug  3 12:41 Makefile
 	-rwxrwxr-x 1 biao biao 59148 Dec 28 16:28 example_apn_v2
 	-rwxr-xr-x 1 biao biao  6118 Aug  3 12:41 example_apn_v2.c
-	-rw-rw-r-- 1 biao biao  7472 Dec 28 16:28 example_apn_v2.o
 	-rwxrwxr-x 1 biao biao 57528 Dec 28 16:28 example_data_call_v2
 	-rwxr-xr-x 1 biao biao  4123 Aug  3 12:41 example_data_call_v2.c
-	-rw-rw-r-- 1 biao biao  3928 Dec 28 16:28 example_data_call_v2.o
 	-rwxrwxr-x 1 biao biao 60312 Dec 28 16:28 example_data_call_v2_cdma
 	-rwxr-xr-x 1 biao biao  8256 Aug  3 12:41 example_data_call_v2_cdma.c
-	-rw-rw-r-- 1 biao biao  8916 Dec 28 16:28 example_data_call_v2_cdma.o
 	-rwxrwxr-x 1 biao biao 56832 Dec 28 16:28 example_default_profile
 	-rwxr-xr-x 1 biao biao  1811 Aug  3 12:41 example_default_profile.c
-	-rw-rw-r-- 1 biao biao  2988 Dec 28 16:28 example_default_profile.o
 	drwxr-xr-x 1 biao biao   512 Aug  3 12:41 leagcy
 
 example_data_call_v2 这个例子默认是拨1-3路。拨号成功后，3路成功的话，应该有3个rmnet_dataX获取到IP地址，并且用AT+CGPADDR查到的地址与 rmnet_dataX 地址相同。
@@ -117,4 +113,8 @@ Interface 4 用于 客户的新增串口。
 
 清除所有filter 表
 
-另外配置nat之前，记得打开ip_forwarding。
+另外配置nat之前，记得打开ip_forwarding
+	
+	echo 1 > /proc/sys/net/ipv4/ip_forward
+
+
