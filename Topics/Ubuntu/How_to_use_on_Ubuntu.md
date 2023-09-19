@@ -157,8 +157,10 @@ Systemd 是 Linux 系统工具，用来启动守护进程，已成为大多数�
 1.准备好quectel-CM和udhcpc/dhclient/default.script等
 假设路径是quectel-CM编译好，push在/usr/bin/目录中。chmod +x /usr/bin/quectel-CM, 执行quectel-CM可以拨号。
 
+在QConnecManager的源码里就有一个default.script脚本.
+
 2.创建一个service文件
-进入/etc/systemd/system/，创建一个CM.service文件，内容如下：
+进入/etc/systemd/system/，创建一个cm.service文件，内容如下：
     
     [Unit]
     Description=just for quectel-CM 填简介
@@ -176,13 +178,13 @@ Systemd 是 Linux 系统工具，用来启动守护进程，已成为大多数�
 重新加载配置文件
 
 	$ sudo systemctl daemon-reload              service文件改动后要重新转载一下
-	$ sudo systemctl enable my.service          这句是为了设置开机启动
+	$ sudo systemctl enable cm.service          这句是为了设置开机启动
 
 如果你想不重启立刻使用这个sh脚本，就运行下面这句：
 
 重启相关服务
 
-	$ sudo systemctl start my.service           启动服务
+	$ sudo systemctl start cm.service           启动服务
 
 
 CentOS的编译问题
